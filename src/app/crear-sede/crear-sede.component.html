@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="contenedor-title justify-content-center">
+        <h1 class="text-center title">Crear Sede</h1>
+    </div>  
+    <div class="contenedor-form">
+        <div class="form form-cuenta">
+          <form [formGroup]="sedeForm" (ngSubmit)="guardarSede()">
+            <div class="mb-3">
+              <label class="form-label">NOMBRE PARQUEADERO</label>
+              <select class = "form-control" formControlName = "parqueadero">
+                <option [ngValue]="item" *ngFor="let item of parqueaderos">{{item.nombre}}</option>
+            </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">NOMBRE SEDE</label>
+              <input type="text" class="form-control" formControlName = "nombre">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">CORREO</label>
+              <input type="email" class="form-control" formControlName = "correoElectronico">
+            </div>
+            <div class="mb-3">  
+              <label class="form-label">TIPO SEDE</label>
+              <select class = "form-control" formControlName = "tipoSede">
+                <option [ngValue]="item" *ngFor="let item of tipoSedes">{{item.nombre}}</option>
+            </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">PAIS</label>
+              <select class = "form-control" formControlName = "pais">
+                <option [ngValue]="item" *ngFor="let item of paises">{{item.nombre}}</option>
+            </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">DEPARTAMENTO</label>
+              <select class = "form-control" formControlName = "departamento" >
+                <option [ngValue]="item" *ngFor="let item of departamentos">{{item.nombre}}</option>
+            </select>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">CIUDAD</label>
+              <select class = "form-control" formControlName = "ciudad" >
+                <option [ngValue]="item" *ngFor="let item of ciudades">{{item.nombre}}</option>
+            </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">DIRECCION</label>
+                <input type="text" class="form-control" formControlName = "direccion">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">CELDAS CARRO</label>
+                <input type="number" class="form-control" formControlName = "celdasCarro">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">CELDAS MOTO</label>
+                <input type="number" class="form-control" formControlName = "celdasMoto">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">CELDAS CAMION</label>
+                <input type="number" class="form-control" formControlName = "celdascamion">
+              </div>
+            <div class="col text-center">
+                <button type="submit">Crear Sede</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>

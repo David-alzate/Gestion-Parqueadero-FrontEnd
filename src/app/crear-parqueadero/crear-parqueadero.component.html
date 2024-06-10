@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="contenedor-title justify-content-center">
+        <h1 class="text-center title">Crear Parqueadero</h1>
+    </div>  
+    <div class="contenedor-form">
+        <div class="form form-cuenta">
+          <form [formGroup]="ParqueaderoForm" (ngSubmit)="guardarParqueadero()">
+            <div class="mb-3">
+              <label class="form-label">NOMBRE PARQUEADERO</label>
+              <input type="text" class="form-control" formControlName = "nombre">
+            </div>
+            <div class="col text-center">
+                <button type="submit">Crear Parqueadero</button>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>

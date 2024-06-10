@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="contenedor-list">
+        <div class="contenedor-title justify-content-center">
+            <h1 class="text-center title">Sedes</h1>
+        </div>  
+
+        <table class="table lista-parqueaderos custom-bg">
+            <thead>
+                <tr>
+                    <th>Nombre Parqueadero</th>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Tipo Sede</th>
+                    <th>Pais</th>
+                    <th>Departamento</th>
+                    <th>Ciudad</th>
+                    <th>Direccion</th>
+                    <th>Celdas Carro</th>
+                    <th>Celdas Moto</th>
+                    <th>Celdas Camion</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of sedes">
+                    <td>{{item.parqueadero.nombre}}</td>
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.correoElectronico}}</td>
+                    <td>{{item.tipoSede.nombre}}</td>
+                    <td>{{item.pais.nombre}}</td>
+                    <td>{{item.departamento.nombre}}</td>
+                    <td>{{item.ciudad.nombre}}</td>
+                    <td>{{item.direccion}}</td>
+                    <td>{{item.celdasCarro}}</td>
+                    <td>{{item.celdasMoto}}</td>
+                    <td>{{item.celdascamion}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
