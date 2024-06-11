@@ -4,13 +4,15 @@ import { CrearParqueaderoComponent } from './crear-parqueadero/crear-parqueadero
 import { CrearSedeComponent } from './crear-sede/crear-sede.component';
 import { ListaSedeComponent } from './lista-sede/lista-sede.component';
 import { ListaParqueaderoComponent } from './lista-parqueadero/lista-parqueadero.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/parqueadero', pathMatch: 'full' },
   { path: 'parqueadero', component: CrearParqueaderoComponent },
   { path: 'sede', component: CrearSedeComponent },
   { path: 'lista-sedes', component: ListaSedeComponent},
-  { path: 'lista-parqueaderos', component: ListaParqueaderoComponent}
+  { path: 'lista-parqueaderos', component: ListaParqueaderoComponent},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

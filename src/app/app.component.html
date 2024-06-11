@@ -1,18 +1,20 @@
-<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-  <a class="navbar-brand title" routerLink="/parqueadero">Parqueadero JDM</a>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/parqueadero">Crear Parqueadero</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/sede">Crear Sede</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/lista-parqueaderos">Lista Parqueaderos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/lista-sedes">Lista Sedes</a>
-    </li>
-  </ul>
-</nav>
+<div *ngIf="showNavBar">
+  <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+    <a class="navbar-brand title" routerLink="/parqueadero">Parqueadero JDM</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/parqueadero">Crear Parqueadero</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/sede">Crear Sede</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/lista-parqueaderos">Lista Parqueaderos</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/lista-sedes">Lista Sedes</a>
+      </li>
+    </ul>
+  </nav>
+</div>
 <router-outlet></router-outlet>
