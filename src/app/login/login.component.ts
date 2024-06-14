@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoginService } from '../services/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,28 +11,35 @@ import { LoginService } from '../services/login/login.service';
 export class LoginComponent {
 
   loginForm: FormGroup;
-  datos: any[] = [];
 
   constructor(
     public fb: FormBuilder,
-    public LoginService: LoginService
+    public loginService: LoginService,
+    private router: Router
   ){
     this.loginForm = this.fb.group({
-      correo: ['', Validators.required],
+      correoElectronico: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  iniciarSesion(): void{
-    this.LoginService.login(this.loginForm.value).subscribe(resp => {
-      alert(resp.mensajes[0]);
-      this.loginForm.reset();
-      this.datos.push(resp);
-      console.log(resp);
-  },
-    error => { console.error(error); alert(error.error.mensajes[0]); }
-    
-  );
+  iniciarSesion(): void {
+    this.loginService.login(this.loginForm.value).subscribe(
+      resp => {
+        if (resp.success) {
+          alert(resp.mensajes[0]);
+          this.router.navigate(['/parqueadero']);
+        } else {
+          alert(resp.mensajes[0]);
+        }
+      },
+      error => { 
+        console.error(error); 
+        if (error.error && error.error.mensajes) {
+          alert(error.error.mensajes[0]);
+      }
+    }
+    );
   }
-
+  
 }

@@ -7,7 +7,7 @@ import { ListaParqueaderoComponent } from './lista-parqueadero/lista-parqueadero
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/parqueadero', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'parqueadero', component: CrearParqueaderoComponent },
   { path: 'sede', component: CrearSedeComponent },
   { path: 'lista-sedes', component: ListaSedeComponent},

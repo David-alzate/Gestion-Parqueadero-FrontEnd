@@ -92,18 +92,22 @@ export class CrearSedeComponent implements OnInit {
   }
 
   guardarSede(): void {
-    this.sedeService.saveSede(this.sedeForm.value).subscribe(
-      resp => {
-        alert(resp.mensajes[0]);
-        this.sedeForm.reset();
-        this.sede.push(resp);
-        console.log(resp);
-      },
-      error => {
-        console.error(error);
-        alert(error.error.mensajes[0]);
-      }
-    );
+    if (this.sedeForm.valid) {
+      this.sedeService.saveSede(this.sedeForm.value).subscribe(
+        resp => {
+          alert(resp.mensajes[0]);
+          this.sedeForm.reset();
+          this.sede.push(resp);
+          console.log(resp);
+        },
+        error => {
+          console.error(error);
+          alert(error.error.mensajes[0]);
+        }
+      );
+    } else {
+      alert('Formulario inválido. Por favor, completa todos los campos requeridos.');
+    }
   }
 
 cargarDepartamentosPorPaisesId(event: any) {
