@@ -5,14 +5,15 @@ import { CrearSedeComponent } from './crear-sede/crear-sede.component';
 import { ListaSedeComponent } from './lista-sede/lista-sede.component';
 import { ListaParqueaderoComponent } from './lista-parqueadero/lista-parqueadero.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'parqueadero', component: CrearParqueaderoComponent },
-  { path: 'sede', component: CrearSedeComponent },
-  { path: 'lista-sedes', component: ListaSedeComponent},
-  { path: 'lista-parqueaderos', component: ListaParqueaderoComponent},
-  { path: 'login', component: LoginComponent}
+  { path: '', redirectTo: '/parqueadero', pathMatch: 'full' },
+  { path: 'parqueadero', component: CrearParqueaderoComponent, canActivate: [AuthGuard] },
+  { path: 'sede', component: CrearSedeComponent, canActivate: [AuthGuard] },
+  { path: 'lista-sedes', component: ListaSedeComponent, canActivate: [AuthGuard] },
+  { path: 'lista-parqueaderos', component: ListaParqueaderoComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({

@@ -3,16 +3,19 @@
     <a class="navbar-brand title" routerLink="/parqueadero">Parqueadero JDM</a>
     <ul class="nav nav-pills">
       <li class="nav-item">
-        <a class="nav-link" routerLink="/parqueadero">Crear Parqueadero</a>
+        <a class="nav-link nav-CrearParqueadero" routerLink="/parqueadero">Crear Parqueadero</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/sede">Crear Sede</a>
+        <a class="nav-link nav-CrearSede" routerLink="/sede">Crear Sede</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/lista-parqueaderos">Lista Parqueaderos</a>
+        <a class="nav-link nav-ListaParqueaderos" routerLink="/lista-parqueaderos">Lista Parqueaderos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="/lista-sedes">Lista Sedes</a>
+        <a class="nav-link nav-ListaSedes" routerLink="/lista-sedes">Lista Sedes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link nav-CerrarSesion" (click)="logout()">Cerrar Sesion</a>
       </li>
     </ul>
   </nav>
