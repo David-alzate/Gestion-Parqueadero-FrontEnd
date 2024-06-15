@@ -66,3 +66,15 @@ nav {
     background-color: red;
     color: black;
 }
+
+.nav-CrearEmpleado {
+    text-decoration: none;
+    color: black;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.nav-CrearEmpleado:hover {
+    background-color: black;
+    color: white;
+}

@@ -12,6 +12,7 @@ import { CrearSedeComponent } from './crear-sede/crear-sede.component';
 import { ListaSedeComponent } from './lista-sede/lista-sede.component';
 import { ListaParqueaderoComponent } from './lista-parqueadero/lista-parqueadero.component';
 import { LoginComponent } from './login/login.component';
+import { CrearEmpleadoComponent } from './crear-empleado/crear-empleado.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { LoginComponent } from './login/login.component';
     CrearSedeComponent,
     ListaSedeComponent,
     ListaParqueaderoComponent,
-    LoginComponent
+    LoginComponent,
+    CrearEmpleadoComponent
   ],
   imports: [
     BrowserModule,
