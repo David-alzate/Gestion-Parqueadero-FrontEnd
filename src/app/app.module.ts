@@ -13,6 +13,7 @@ import { ListaSedeComponent } from './lista-sede/lista-sede.component';
 import { ListaParqueaderoComponent } from './lista-parqueadero/lista-parqueadero.component';
 import { LoginComponent } from './login/login.component';
 import { CrearEmpleadoComponent } from './crear-empleado/crear-empleado.component';
+import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CrearEmpleadoComponent } from './crear-empleado/crear-empleado.componen
     ListaSedeComponent,
     ListaParqueaderoComponent,
     LoginComponent,
-    CrearEmpleadoComponent
+    CrearEmpleadoComponent,
+    ListaEmpleadosComponent
   ],
   imports: [
     BrowserModule,

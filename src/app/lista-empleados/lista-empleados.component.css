@@ -1,0 +1,32 @@
+.lista-empleados {
+    padding-left: 30%;
+    padding-right: 20%;
+    margin-top: 5%;
+}
+
+.title {
+    font-size: 40px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.contenedor-title {
+    display: flex;
+    height: 10vh;
+}
+
+.custom-bg {
+    background-color: #C3C3C3;
+    border-collapse: collapse;
+}
+
+.custom-bg {
+    background-color: #C3C3C3;
+    border-radius: 15px; 
+    overflow: hidden;
+    border: 1px solid #ddd;
+}   
+
+.custom-bg thead th {
+    background-color: #DED61B;
+}

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="contenedor-list">
+        <div class="contenedor-title justify-content-center">
+            <h1 class="text-center title">Empleados</h1>
+        </div>  
+
+        <table class="table lista-empleados custom-bg">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Correo Electronico</th>
+                    <th>Tipo Identificacion</th>
+                    <th>Numero Identificacion</th>
+                    <th>Tipo Empleado</th>
+                    <th>Sede</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of empleados">
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.apellido}}</td>
+                    <td>{{item.correoElectronico}}</td>
+                    <td>{{item.tipoIdentificacion.nombre}}</td>
+                    <td>{{item.numeroIdentificacion}}</td>
+                    <td>{{item.tipoEmpleado.nombre}}</td>
+                    <td>{{item.sede.nombre}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
