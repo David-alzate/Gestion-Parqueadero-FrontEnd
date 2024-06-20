@@ -10,7 +10,7 @@ import { SedeService } from '../services/sede/sede.service';
   templateUrl: './crear-empleado.component.html',
   styleUrls: ['./crear-empleado.component.css']
 })
-export class CrearEmpleadoComponent implements OnInit{
+export class CrearEmpleadoComponent implements OnInit {
 
   EmpleadoForm: FormGroup;
   tipoIdentificacion: any;
@@ -24,7 +24,7 @@ export class CrearEmpleadoComponent implements OnInit{
     public tipoIdentificacionService: TipoIdentificacionService,
     public tipoEmpleadoService: TipoEmpleadosService,
     public sedeService: SedeService
-  ){
+  ) {
     this.EmpleadoForm = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -33,6 +33,8 @@ export class CrearEmpleadoComponent implements OnInit{
       correoElectronico: ['', Validators.required],
       tipoEmpleado: ['', Validators.required],
       sede: ['', Validators.required],
+      password: ['', Validators.required],
+
     });
 
   }
