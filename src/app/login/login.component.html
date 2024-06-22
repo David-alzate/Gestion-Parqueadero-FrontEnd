@@ -1,22 +1,31 @@
 <div class="container">
-    <div class="contenedor-title justify-content-center">
-        <h1 class="text-center title">Iniciar Sesion</h1>
-    </div>  
-    <div class="contenedor-form">
-        <div class="form form-cuenta">
-          <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
-            <div class="mb-3">
-              <label class="form-label">Correo Electronico</label>
-              <input type="email" class="form-control" formControlName = "correoElectronico" placeholder="Ingrese su correo Electronico">
-            </div>
-            <div class="mb-3">
-                <label for="inputPassword6">Contraseña</label>
-                <input type="password" class="form-control" aria-describedby="passwordHelpInline" formControlName = "password" placeholder="Ingrese la contraseña">
-              </div>
-            <div class="col text-center">
-                <button type="submit">Iniciar Sesion</button>
-            </div>
-          </form>
+  <div class="contenedor-title justify-content-center">
+    <h1 class="text-center title">Iniciar Sesion</h1>
+  </div>
+  <div class="contenedor-form">
+    <div class="form form-cuenta">
+      <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+        <div class="mb-3">
+          <label class="form-label">Tipo Empleado</label>
+          <select class="form-control" formControlName="tipoEmpleado">
+            <option value="" disabled selected>Selecciona un tipo de empleado</option>
+            <option [ngValue]="item" *ngFor="let item of tipoEmpleado">{{item.nombre}}</option>
+          </select>
         </div>
+        <div class="mb-3">
+          <label class="form-label">Numero Identificacion</label>
+          <input type="number" class="form-control" formControlName="numeroIdentificacion"
+            placeholder="Ingrese su Numero de Identificacion">
+        </div>
+        <div class="mb-3">
+          <label for="inputPassword6">Contraseña</label>
+          <input type="password" class="form-control" aria-describedby="passwordHelpInline" formControlName="password"
+            placeholder="Ingrese la contraseña">
+        </div>
+        <div class="col text-center">
+          <button type="submit">Iniciar Sesion</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>
