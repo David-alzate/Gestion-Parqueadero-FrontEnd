@@ -1,7 +1,3 @@
-body {
-    background-color: #C3C3C3 !important;
-}
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
@@ -9,4 +5,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .titulo {
     font-size: 30px !important;
     font-weight: bold !important;
+}
+
+
+.contenedor {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 5px;
 }

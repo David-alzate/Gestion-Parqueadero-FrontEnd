@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-crear-parqueadero',
@@ -14,8 +15,9 @@ export class CrearParqueaderoComponent {
 
   constructor(
     public fb: FormBuilder,
-    public ParqueaderosService: ParqueaderosService
-  ){
+    public ParqueaderosService: ParqueaderosService,
+    private _snackBar: MatSnackBar
+  ) {
     this.ParqueaderoForm = this.fb.group({
       nombre: ['', Validators.required],
     });
@@ -24,16 +26,26 @@ export class CrearParqueaderoComponent {
   ngOnInit(): void {
   }
 
-  guardarParqueadero(): void{
+  guardarParqueadero(): void {
     this.ParqueaderosService.saveParqueadero(this.ParqueaderoForm.value).subscribe(resp => {
-      alert(resp.mensajes[0]);
+      this._snackBar.open(resp.mensajes[0], '', {
+        duration: 1500,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      })
       this.ParqueaderoForm.reset();
       this.Parqueadero.push(resp);
-      console.log(resp);
-  },
-    error => { console.error(error); alert(error.error.mensajes[0]); }
-    
-  );
+    },
+      error => {
+        console.error(error);
+        this._snackBar.open(error.error.mensajes[0], '', {
+          duration: 3000,
+          horizontalPosition: 'center',
+          verticalPosition: 'top',
+        });
+      }
+
+    );
   }
 
 }

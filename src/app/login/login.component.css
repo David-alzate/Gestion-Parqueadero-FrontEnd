@@ -3,8 +3,8 @@
     justify-content: center;
     height: 100%;
     align-items: center;
-    background-color: #C3C3C3;
 }
+
 
 .login {
     width: 100%;
@@ -29,4 +29,9 @@
 
 .spiner {
     margin: 0 auto;
+}
+
+img {
+    width: 25%;
+    margin-bottom: 50px;
 }

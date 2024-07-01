@@ -1,29 +1,25 @@
 <div *ngIf="showNavBar">
-  <nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
-    <a class="navbar-brand title" routerLink="/parqueadero">Parqueadero JDM</a>
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link nav-CrearParqueadero" routerLink="/parqueadero">Crear Parqueadero</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-CrearSede" routerLink="/sede">Crear Sede</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-CrearEmpleado" routerLink="/empleado">Crear Empleado</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-ListaParqueaderos" routerLink="/lista-parqueaderos">Lista Parqueaderos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-ListaSedes" routerLink="/lista-sedes">Lista Sedes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-ListaSedes" routerLink="/lista-empleados">Lista Empleados</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-CerrarSesion" (click)="logout()">Cerrar Sesion</a>
-      </li>
-    </ul>
-  </nav>
+  <mat-toolbar color="primary">
+  <span>Parqueadero</span>
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="parqueadero">Parqueaderos</button>
+<mat-menu #parqueadero="matMenu">
+  <button mat-menu-item routerLink="/parqueadero">Crear Parqueadero</button>
+  <button mat-menu-item routerLink="/lista-parqueaderos">Gestion Parqueaderos</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="sedes">Sedes</button>
+<mat-menu #sedes="matMenu">
+  <button mat-menu-item routerLink="/sede">Crear Sede</button>
+  <button mat-menu-item routerLink="/lista-sedes">Gestion Sedes</button>
+</mat-menu>
+<button mat-button [matMenuTriggerFor]="empleados">Empleados</button>
+<mat-menu #empleados="matMenu">
+  <button mat-menu-item routerLink="/empleado">Crear Empleado</button>
+  <button mat-menu-item routerLink="/lista-empleados">Gestion Empleados</button>
+</mat-menu>
+<button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesion">
+  <mat-icon>logout</mat-icon>
+</button>
+</mat-toolbar>
 </div>
 <router-outlet></router-outlet>
