@@ -1,31 +1,26 @@
-<div class="container">
-  <div class="contenedor-title justify-content-center">
-    <h1 class="text-center title">Iniciar Sesion</h1>
-  </div>
-  <div class="contenedor-form">
-    <div class="form form-cuenta">
-      <form [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
-        <div class="mb-3">
-          <label class="form-label">Tipo Empleado</label>
-          <select class="form-control" formControlName="tipoEmpleado">
-            <option value="" disabled selected>Selecciona un tipo de empleado</option>
-            <option [ngValue]="item" *ngFor="let item of tipoEmpleado">{{item.nombre}}</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Numero Identificacion</label>
-          <input type="number" class="form-control" formControlName="numeroIdentificacion"
-            placeholder="Ingrese su Numero de Identificacion">
-        </div>
-        <div class="mb-3">
-          <label for="inputPassword6">Contraseña</label>
-          <input type="password" class="form-control" aria-describedby="passwordHelpInline" formControlName="password"
-            placeholder="Ingrese la contraseña">
-        </div>
-        <div class="col text-center">
-          <button type="submit">Iniciar Sesion</button>
-        </div>
-      </form>
-    </div>
+<div class="body">
+  <div class="login">
+    <mat-spinner *ngIf="loading" class="spiner" diameter="50"></mat-spinner>
+    <form *ngIf="!loading" [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
+      <h1 class="titulo" style="margin-bottom: 50px;">Iniciar Sesion</h1>
+      <mat-form-field class="ancho">
+        <mat-label>Tipo Empleado</mat-label>
+        <mat-select formControlName="tipoEmpleado">
+          <mat-option *ngFor="let item of tipoEmpleado" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Número De Identificación</mat-label>
+        <input type="number" matInput formControlName="numeroIdentificacion">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" formControlName="password" placeholder="Ingrese la contraseña">
+      </mat-form-field>
+      <br>
+      <button class="ancho boton" mat-flat-button [disabled]="loginForm.invalid" color="primary">Iniciar Sesion</button>
+    </form>
   </div>
 </div>

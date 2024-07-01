@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 import { CrearParqueaderoComponent } from './crear-parqueadero/crear-parqueadero.component';
 import { CrearSedeComponent } from './crear-sede/crear-sede.component';
 import { ListaSedeComponent } from './lista-sede/lista-sede.component';
@@ -14,6 +13,15 @@ import { ListaParqueaderoComponent } from './lista-parqueadero/lista-parqueadero
 import { LoginComponent } from './login/login.component';
 import { CrearEmpleadoComponent } from './crear-empleado/crear-empleado.component';
 import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
+
+// Angular Material
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import {MatButtonModule} from '@angular/material/button';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -32,9 +40,17 @@ import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.compo
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatButtonModule,
+    MatSnackBarModule,
+    MatProgressSpinnerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }  
+export class AppModule { }

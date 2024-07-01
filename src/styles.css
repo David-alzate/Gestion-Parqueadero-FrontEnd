@@ -1,3 +1,12 @@
 body {
-    background-color: #C3C3C3;
+    background-color: #C3C3C3 !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.titulo {
+    font-size: 30px !important;
+    font-weight: bold !important;
 }
