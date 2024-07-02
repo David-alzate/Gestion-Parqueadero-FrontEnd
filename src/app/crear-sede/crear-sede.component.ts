@@ -6,6 +6,7 @@ import { DepartamentosService } from '../services/departamentos/departamentos.se
 import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.service';
 import { TipoSedeService } from '../services/tipoSede/tipo-sede.service';
 import { CiudadesService } from '../services/ciudades/ciudaes.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -22,7 +23,7 @@ export class CrearSedeComponent implements OnInit {
   tipoSedes: any;
   ciudades: any;
   sede: any[] = [];
-  
+
 
   constructor(
     public fb: FormBuilder,
@@ -31,8 +32,9 @@ export class CrearSedeComponent implements OnInit {
     public departamentosService: DepartamentosService,
     public parqueaderosService: ParqueaderosService,
     public tipoSedeService: TipoSedeService,
-    public ciudadesService: CiudadesService
-  ){
+    public ciudadesService: CiudadesService,
+    private _snackBar: MatSnackBar
+  ) {
     this.sedeForm = this.fb.group({
       parqueadero: ['', Validators.required],
       nombre: ['', Validators.required],
@@ -68,7 +70,7 @@ export class CrearSedeComponent implements OnInit {
     },
       error => { console.error(error) }
     );
-    
+
 
     this.sedeForm.get('pais')?.valueChanges.subscribe(value => {
       if (value !== null) {
@@ -95,44 +97,55 @@ export class CrearSedeComponent implements OnInit {
     if (this.sedeForm.valid) {
       this.sedeService.saveSede(this.sedeForm.value).subscribe(
         resp => {
-          alert(resp.mensajes[0]);
+          this._snackBar.open(resp.mensajes[0], '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
           this.sedeForm.reset();
           this.sede.push(resp);
-          console.log(resp);
         },
         error => {
           console.error(error);
-          alert(error.error.mensajes[0]);
+          this._snackBar.open(error.error.mensajes[0], '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
         }
       );
     } else {
-      alert('Formulario inválido. Por favor, completa todos los campos requeridos.');
+      this._snackBar.open('Formulario inválido. Por favor, completa todos los campos requeridos.', '', {
+        duration: 1500,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      })
     }
   }
 
-cargarDepartamentosPorPaisesId(event: any) {
-  const paisId: number = parseInt(event.target.value, 10);
-  this.departamentosService.getAllDepartamentosByPais(paisId).subscribe(
-    resp => {
-      this.departamentos = resp.datos;
-    },
-    error => {
-      console.error(error);
-    }
-  );
-}
+  cargarDepartamentosPorPaisesId(event: any) {
+    const paisId: number = parseInt(event.target.value, 10);
+    this.departamentosService.getAllDepartamentosByPais(paisId).subscribe(
+      resp => {
+        this.departamentos = resp.datos;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
 
-cargarCiudadesPorDepartamentoId(event: any) {
-  const departamentoId: number = parseInt(event.target.value, 10);
-  this.ciudadesService.getAllCiudadesByDepartamento(departamentoId).subscribe(
-    resp => {
-      this.ciudades = resp.datos;
-    },
-    error => {
-      console.error(error);
-    }
-  );
-}
+  cargarCiudadesPorDepartamentoId(event: any) {
+    const departamentoId: number = parseInt(event.target.value, 10);
+    this.ciudadesService.getAllCiudadesByDepartamento(departamentoId).subscribe(
+      resp => {
+        this.ciudades = resp.datos;
+      },
+      error => {
+        console.error(error);
+      }
+    );
+  }
 }
 
 

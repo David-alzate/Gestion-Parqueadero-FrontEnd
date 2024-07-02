@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.service';
@@ -20,8 +19,7 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private parqueaderosService: ParqueaderosService,
-    private _snackBar: MatSnackBar
+    private parqueaderosService: ParqueaderosService
   ) {}
 
   ngOnInit(): void {
