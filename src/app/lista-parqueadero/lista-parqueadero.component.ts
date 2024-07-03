@@ -1,8 +1,12 @@
-import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.service';
+
+interface Parqueadero {
+  nombre: string;
+}
 
 @Component({
   selector: 'app-lista-parqueadero',
@@ -11,15 +15,16 @@ import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.servi
 })
 export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
 
-  parqueaderos: any[] = [];
+  parqueaderos: Parqueadero[] = [];
   displayedColumns: string[] = ['nombre', 'acciones'];
-  dataSource!: MatTableDataSource<any>;
+  dataSource: MatTableDataSource<Parqueadero> = new MatTableDataSource<Parqueadero>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
   constructor(
-    private parqueaderosService: ParqueaderosService
+    private parqueaderosService: ParqueaderosService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -29,6 +34,7 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    this.cdr.detectChanges();
   }
 
   applyFilter(event: Event) {
@@ -39,14 +45,20 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
   cargarParqueaderos() {
     this.parqueaderosService.getAllParqueaderos().subscribe(resp => {
       this.parqueaderos = resp.datos;
-      this.dataSource = new MatTableDataSource(this.parqueaderos);
+      this.dataSource.data = this.parqueaderos;
+      this.cdr.detectChanges();
+      if (this.paginator && this.dataSource) {
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+        this.paginator._changePageSize(this.paginator.pageSize);
+      }
     },
     error => {
       console.error(error);
     });
   }
 
-  eliminarParqueadero(){
-
+  eliminarParqueadero() {
+    // Lógica para eliminar parqueadero
   }
 }
