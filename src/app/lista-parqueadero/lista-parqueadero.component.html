@@ -36,7 +36,7 @@
           <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
   
-        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons aria-label="Select page of parqueaderos"></mat-paginator>
+        <mat-paginator [pageSizeOptions]="[10, 25, 100]" showFirstLastButtons aria-label="Select page of parqueaderos"></mat-paginator>
       </div>
     </div>
     <h2 *ngIf="parqueaderos.length == 0">No hay registros para mostrar</h2>

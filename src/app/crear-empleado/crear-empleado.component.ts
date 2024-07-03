@@ -4,6 +4,7 @@ import { EmpleadosService } from '../services/empleados/empleados.service';
 import { TipoIdentificacionService } from '../services/tipoIdentificacion/tipo-identificacion.service';
 import { TipoEmpleadosService } from '../services/tipoEmpleados/tipo-empleados.service';
 import { SedeService } from '../services/sede/sede.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-crear-empleado',
@@ -23,7 +24,8 @@ export class CrearEmpleadoComponent implements OnInit {
     public empleadoService: EmpleadosService,
     public tipoIdentificacionService: TipoIdentificacionService,
     public tipoEmpleadoService: TipoEmpleadosService,
-    public sedeService: SedeService
+    public sedeService: SedeService,
+    private _snackBar: MatSnackBar
   ) {
     this.EmpleadoForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -67,18 +69,30 @@ export class CrearEmpleadoComponent implements OnInit {
     if (this.EmpleadoForm.valid) {
       this.empleadoService.saveEmpleado(this.EmpleadoForm.value).subscribe(
         resp => {
-          alert(resp.mensajes[0]);
+          this._snackBar.open(resp.mensajes[0], '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
           this.EmpleadoForm.reset();
           this.empleado.push(resp);
           console.log(resp);
         },
         error => {
           console.error(error);
-          alert(error.error.mensajes[0]);
+          this._snackBar.open(error.error.mensajes[0], '', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
         }
       );
     } else {
-      alert('Formulario inválido. Por favor, completa todos los campos requeridos.');
+      this._snackBar.open('Formulario inválido. Por favor, completa todos los campos requeridos.', '', {
+        duration: 2000,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      })
     }
   }
 

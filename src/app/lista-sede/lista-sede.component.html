@@ -70,14 +70,14 @@
                 <ng-container matColumnDef="acciones">
                     <th mat-header-cell *matHeaderCellDef></th>
                     <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
-                        <a class="pointer" style="color: #1878b0;" matTooltip="Ver Parqueadero">
+                        <a class="pointer" style="color: #1878b0;" matTooltip="Ver Sede">
                             <mat-icon>search</mat-icon>
                         </a>
-                        <a class="pointer" style="color: #1f516f;" matTooltip="Editar Parqueadero">
+                        <a class="pointer" style="color: #1f516f;" matTooltip="Editar Sede">
                             <mat-icon>edit</mat-icon>
                         </a>
                         <a class="pointer" (click)="eliminarSedes()" style="color: #e15639;"
-                            matTooltip="Eliminar Parqueadero">
+                            matTooltip="Eliminar Sede">
                             <mat-icon>delete</mat-icon>
                         </a>
                     </td>
@@ -87,8 +87,8 @@
                 <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
             </table>
 
-            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"
-                aria-label="Select page of parqueaderos"></mat-paginator>
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]"
+                aria-label="Select page of sedes"></mat-paginator>
         </div>
     </div>
     <h2 *ngIf="sedes.length == 0">No hay registros para mostrar</h2>

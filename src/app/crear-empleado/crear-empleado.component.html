@@ -1,52 +1,54 @@
-<div class="container">
-  <div class="contenedor-title justify-content-center">
-    <h1 class="text-center title">Crear Empleado</h1>
-  </div>
-  <div class="contenedor-form">
-    <div class="form form-cuenta">
-      <form [formGroup]="EmpleadoForm" (ngSubmit)="guardarEmpleado()">
-        <div class="mb-3">
-          <label class="form-label">Nombre</label>
-          <input type="text" class="form-control" formControlName="nombre">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Apellido</label>
-          <input type="email" class="form-control" formControlName="apellido">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Tipo Identificacion</label>
-          <select class="form-control" formControlName="tipoIdentificacion">
-            <option [ngValue]="item" *ngFor="let item of tipoIdentificacion">{{item.nombre}}</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Numero Identificacion</label>
-          <input type="text" class="form-control" formControlName="numeroIdentificacion">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Correo Electronico</label>
-          <input type="text" class="form-control" formControlName="correoElectronico">
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Tipo Empleado</label>
-          <select class="form-control" formControlName="tipoEmpleado">
-            <option [ngValue]="item" *ngFor="let item of tipoEmpleado">{{item.nombre}}</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Sede</label>
-          <select class="form-control" formControlName="sede">
-            <option [ngValue]="item" *ngFor="let item of sede">{{item.nombre}}</option>
-          </select>
-        </div>
-        <div class="mb-3">
-          <label class="form-label">Contraseña</label>
-          <input type="text" class="form-control" formControlName="password">
-        </div>
-        <div class="col text-center">
-          <button type="submit">Crear Empleado</button>
-        </div>
-      </form>
-    </div>
+<div class="body">
+  <div class="crear-empleado">
+    <form [formGroup]="EmpleadoForm" (ngSubmit)="guardarEmpleado()">
+      <h1 class="titulo" style="margin-bottom: 50px;">Crear Empleado</h1>
+      <mat-form-field class="ancho">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="nombre">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Apellido</mat-label>
+        <input type="text" matInput formControlName="apellido">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Tipo Identificacion</mat-label>
+        <mat-select formControlName="tipoIdentificacion">
+          <mat-option *ngFor="let item of tipoIdentificacion" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Numero Identificacion</mat-label>
+        <input type="number" matInput formControlName="numeroIdentificacion">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Correo Electronico</mat-label>
+        <input type="text" matInput formControlName="correoElectronico">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Tipo Empleado</mat-label>
+        <mat-select formControlName="tipoEmpleado">
+          <mat-option *ngFor="let item of tipoEmpleado" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Sede</mat-label>
+        <mat-select formControlName="sede">
+          <mat-option *ngFor="let item of sede" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Contraseña</mat-label>
+        <input type="password" matInput formControlName="password">
+      </mat-form-field>
+      <br>
+      <button type="submit" class="ancho boton" mat-flat-button [disabled]="EmpleadoForm.invalid"
+        color="primary">Crear Empleado</button>
+    </form>
   </div>
 </div>
