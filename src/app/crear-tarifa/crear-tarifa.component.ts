@@ -43,10 +43,61 @@ export class CrearTarifaComponent implements OnInit{
 
 
   ngOnInit(): void {
+    this.sedeService.getAllSedes().subscribe(resp => {
+      this.sede = resp.datos
+    },
+      error => { console.error(error) }
+    );
 
+    this.estadosService.getAllEstados().subscribe(resp => {
+      this.estado = resp.datos
+    },
+      error => { console.error(error) }
+    );
+
+    this.tipoTarifasService.getAllTiposTarifa().subscribe(resp => {
+      this.tipoTarifa = resp.datos
+    },
+      error => { console.error(error) }
+    );
+
+    this.tipoVehiculosService.getAllTipoVehiculo().subscribe(resp => {
+      this.tipoVehiculo = resp.datos
+    },
+      error => { console.error(error) }
+    );
+
+  
   }
 
   guardarTarifa(){
+    if (this.TarifaForm.valid) {
+      this.tarifasService.saveTarifa(this.TarifaForm.value).subscribe(
+        resp => {
+          this._snackBar.open(resp.mensajes[0], '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
+          this.TarifaForm.reset();
+          this.sede.push(resp);
+        },
+        error => {
+          console.error(error);
+          this._snackBar.open(error.error.mensajes[0], '', {
+            duration: 2000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
+        }
+      );
+    } else {
+      this._snackBar.open('Formulario inválido. Por favor, completa todos los campos requeridos.', '', {
+        duration: 1500,
+        horizontalPosition: 'center',
+        verticalPosition: 'top',
+      })
+    }
   }
 
 }
