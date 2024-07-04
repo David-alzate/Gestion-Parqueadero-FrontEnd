@@ -2,8 +2,7 @@
   <div class="login">
     <mat-spinner *ngIf="loading" class="spiner" diameter="50"></mat-spinner>
     <form *ngIf="!loading" [formGroup]="loginForm" (ngSubmit)="iniciarSesion()">
-      <h1 class="titulo" style="margin-bottom: 50px;">Iniciar Sesion</h1>
-      <img src="../../../assets/img/acceso.png">
+      <img src="../../../assets/img/perfil-del-usuario.png">
       <mat-form-field class="ancho">
         <mat-label>Tipo Empleado</mat-label>
         <mat-select formControlName="tipoEmpleado">
@@ -18,7 +17,15 @@
       </mat-form-field>
       <mat-form-field class="ancho">
         <mat-label>Contraseña</mat-label>
-        <input matInput type="password" formControlName="password" placeholder="Ingrese la contraseña">
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" />
+        <button type="button"
+          mat-icon-button
+          matSuffix
+          (click)="toggleVisibility()"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
       </mat-form-field>
       <br>
       <button type="submit" class="ancho boton" mat-flat-button [disabled]="loginForm.invalid" color="primary">Iniciar Sesion</button>

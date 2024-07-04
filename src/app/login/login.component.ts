@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TipoEmpleadosService } from '../services/tipoEmpleados/tipo-empleados.service';
 import { LoginService } from '../services/login/login.service';
@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   tipoEmpleado!: any[];
   loading = false;
+  hide = true;
+
+  toggleVisibility() {
+    this.hide = !this.hide;
+  }
 
   constructor(
     public fb: FormBuilder,
