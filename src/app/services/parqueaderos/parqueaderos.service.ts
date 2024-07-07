@@ -22,4 +22,8 @@ export class ParqueaderosService {
   public deleteParqueadero(id: any): Observable<any> {
     return this.httpCliente.delete(this.API_SERVER + id);
   }
+
+  updateParqueadero(id: any, parqueadero: {nombre: string}): Observable<any> {
+    return this.httpCliente.put(this.API_SERVER + id, parqueadero);
+  }
 }

@@ -22,4 +22,8 @@ export class TarifasService {
   public deleteTarifa(id: any): Observable<any> {
     return this.httpCliente.delete(this.API_SERVER + id);
   }
+
+  updateTarifa(id: any, tarifa: {nombre: string}): Observable<any> {
+    return this.httpCliente.put(this.API_SERVER + id, tarifa);
+  }
 }

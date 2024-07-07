@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.service';
 import swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarParqueaderoComponent } from './editar-parqueadero/editar-parqueadero.component';
 
 interface Parqueadero {
   id: any;
@@ -26,7 +28,8 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
 
   constructor(
     private parqueaderosService: ParqueaderosService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -93,4 +96,18 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  editarParqueadero(id: any) {
+    const dialogRef = this.dialog.open(EditarParqueaderoComponent, {
+      width: '550px',
+      disableClose: true,
+      data: { id: id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarParqueaderos();
+      }
+    });
+  } 
 }

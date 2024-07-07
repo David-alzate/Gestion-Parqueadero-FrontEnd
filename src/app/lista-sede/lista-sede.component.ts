@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SedeService } from '../services/sede/sede.service';
 import swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarSedeComponent } from './editar-sede/editar-sede.component';
 
 interface Sede {
   id: any;
@@ -37,7 +39,8 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
 
   constructor(
     private sedeService: SedeService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -104,4 +107,19 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
       }
     });
   }
+
+  editarSede(id: any) {
+    console.log(id);
+    const dialogRef = this.dialog.open(EditarSedeComponent, {
+      width: '550px',
+      disableClose: true,
+      data: { id: id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarSedes();
+      }
+    });
+  } 
 }

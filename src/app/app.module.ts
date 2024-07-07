@@ -33,7 +33,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { ListaTarifasComponent } from './lista-tarifas/lista-tarifas.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { EditarParqueaderoComponent } from './lista-parqueadero/editar-parqueadero/editar-parqueadero.component';
+import { EditarSedeComponent } from './lista-sede/editar-sede/editar-sede.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { ListaTarifasComponent } from './lista-tarifas/lista-tarifas.component';
     CrearEmpleadoComponent,
     ListaEmpleadosComponent,
     CrearTarifaComponent,
-    ListaTarifasComponent
+    ListaTarifasComponent,
+    EditarParqueaderoComponent,
+    EditarSedeComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +75,8 @@ import { ListaTarifasComponent } from './lista-tarifas/lista-tarifas.component';
     MatPaginatorModule,
     MatSortModule,
     MatDatepickerModule,
-    MatNativeDateModule 
+    MatNativeDateModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

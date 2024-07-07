@@ -22,4 +22,8 @@ export class SedeService {
   public deleteSede(id: any): Observable<any> {
     return this.httpCliente.delete(this.API_SERVER + id);
   }
+
+  updateSede(id: any, sede: {nombre: string}): Observable<any> {
+    return this.httpCliente.put(this.API_SERVER + id, sede);
+  }
 }

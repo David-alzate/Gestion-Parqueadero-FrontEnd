@@ -123,29 +123,6 @@ export class CrearSedeComponent implements OnInit {
     }
   }
 
-  cargarDepartamentosPorPaisesId(event: any) {
-    const paisId: number = parseInt(event.target.value, 10);
-    this.departamentosService.getAllDepartamentosByPais(paisId).subscribe(
-      resp => {
-        this.departamentos = resp.datos;
-      },
-      error => {
-        console.error(error);
-      }
-    );
-  }
-
-  cargarCiudadesPorDepartamentoId(event: any) {
-    const departamentoId: number = parseInt(event.target.value, 10);
-    this.ciudadesService.getAllCiudadesByDepartamento(departamentoId).subscribe(
-      resp => {
-        this.ciudades = resp.datos;
-      },
-      error => {
-        console.error(error);
-      }
-    );
-  }
 }
 
 

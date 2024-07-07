@@ -20,7 +20,7 @@
           <ng-container matColumnDef="acciones">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
-              <a class="pointer" style="color: #1f516f;" matTooltip="Editar Parqueadero">
+              <a class="pointer" (click)="editarParqueadero(element)" style="color: #1f516f;" matTooltip="Editar Parqueadero">
                 <mat-icon>edit</mat-icon>
               </a>
               <a class="pointer" (click)="eliminarParqueadero(element)" style="color: #e15639;" matTooltip="Eliminar Parqueadero">
