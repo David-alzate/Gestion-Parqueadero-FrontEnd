@@ -109,7 +109,6 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
   }
 
   editarSede(id: any) {
-    console.log(id);
     const dialogRef = this.dialog.open(EditarSedeComponent, {
       width: '550px',
       disableClose: true,

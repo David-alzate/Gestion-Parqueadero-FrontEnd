@@ -1,0 +1,66 @@
+<h2 mat-dialog-title>Editar Empleado</h2>
+<mat-dialog-content>
+    <div class="body">
+        <div class="crear-empleado">
+          <form [formGroup]="EmpleadoForm">
+            <mat-form-field class="ancho">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput formControlName="nombre">
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Apellido</mat-label>
+              <input type="text" matInput formControlName="apellido">
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Tipo Identificacion</mat-label>
+              <mat-select formControlName="tipoIdentificacion">
+                <mat-option *ngFor="let item of tipoIdentificacion" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Numero Identificacion</mat-label>
+              <input type="number" matInput formControlName="numeroIdentificacion">
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Correo Electronico</mat-label>
+              <input type="text" matInput formControlName="correoElectronico">
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Tipo Empleado</mat-label>
+              <mat-select formControlName="tipoEmpleado">
+                <mat-option *ngFor="let item of tipoEmpleado" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Sede</mat-label>
+              <mat-select formControlName="sede">
+                <mat-option *ngFor="let item of sede" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="ancho">
+                <mat-label>Contraseña</mat-label>
+                <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" />
+                <button type="button"
+                  mat-icon-button
+                  matSuffix
+                  (click)="toggleVisibility()"
+                  [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+                  <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+              </mat-form-field>
+            <br>
+          </form>
+        </div>
+      </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button (click)="cancelar()" mat-button>Cancelar</button>
+  <button mat-button (click)="actualizarEmpleado()" color="primary" cdkFocusInitial>Editar</button>
+</mat-dialog-actions>

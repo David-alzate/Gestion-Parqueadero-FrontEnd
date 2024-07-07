@@ -1,0 +1,27 @@
+.body {
+    display: flex;
+    justify-content: center;
+    height: 90%;
+    align-items: center;
+}
+
+.crear-empleado {
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+.ancho {
+    width: 100%;
+}
+
+.boton {
+    padding: 10px;
+    color: black;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 2%;
+    margin-bottom: 5%;
+}

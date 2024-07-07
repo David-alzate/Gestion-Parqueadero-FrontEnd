@@ -36,8 +36,8 @@ export class CrearTarifaComponent implements OnInit{
       tipoTarifa: ['', Validators.required],
       tarifa: ['', Validators.required],
       estado: ['', Validators.required],
-      fechainiciovigencia: ['', Validators.required],
-      fechafinvigencia: ['', Validators.required]
+      fechaInicioVigencia: ['', Validators.required],
+      fechaFinVigencia: ['', Validators.required]
     });
   }
 

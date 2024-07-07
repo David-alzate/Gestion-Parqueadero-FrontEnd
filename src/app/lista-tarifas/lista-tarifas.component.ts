@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TarifasService } from '../services/tarifas/tarifas.service';
 import swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarTarifaComponent } from './editar-tarifa/editar-tarifa.component';
 
 interface Tarifa {
   id: any;
@@ -32,7 +34,8 @@ export class ListaTarifasComponent implements OnInit{
 
   constructor(
     public tarifasService: TarifasService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ) {
 
   }
@@ -101,5 +104,21 @@ export class ListaTarifasComponent implements OnInit{
       }
     });
   }
+
+  
+  editarTarifa(id: any) {
+    const dialogRef = this.dialog.open(EditarTarifaComponent, {
+      width: '550px',
+      disableClose: true,
+      data: { id: id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarTarifas();
+      }
+    });
+  } 
+
 
 }

@@ -18,6 +18,12 @@ export class CrearEmpleadoComponent implements OnInit {
   tipoEmpleado: any;
   sede: any;
   empleado: any[] = [];
+  hide = true;
+
+  toggleVisibility() {
+    this.hide = !this.hide;
+  }
+  
 
   constructor(
     public fb: FormBuilder,

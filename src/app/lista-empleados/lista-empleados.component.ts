@@ -4,6 +4,8 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { EditarEmpleadoComponent } from './editar-empleado/editar-empleado.component';
 
 interface Empleado {
   id: any;
@@ -32,7 +34,8 @@ export class ListaEmpleadosComponent{
 
   constructor(
     public empleadosService: EmpleadosService,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ){
 
   }
@@ -101,6 +104,20 @@ export class ListaEmpleadosComponent{
       }
     });
   }
+
+  editarEmpleado(id: any) {
+    const dialogRef = this.dialog.open(EditarEmpleadoComponent, {
+      width: '550px',
+      disableClose: true,
+      data: { id: id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarEmpleados();
+      }
+    });
+  } 
 
 }
 

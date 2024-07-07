@@ -44,7 +44,15 @@
       </mat-form-field>
       <mat-form-field class="ancho">
         <mat-label>Contraseña</mat-label>
-        <input type="password" matInput formControlName="password">
+        <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" />
+        <button type="button"
+          mat-icon-button
+          matSuffix
+          (click)="toggleVisibility()"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide">
+          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+        </button>
       </mat-form-field>
       <br>
       <button type="submit" class="ancho boton" mat-flat-button [disabled]="EmpleadoForm.invalid"

@@ -36,6 +36,8 @@ import { ListaTarifasComponent } from './lista-tarifas/lista-tarifas.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { EditarParqueaderoComponent } from './lista-parqueadero/editar-parqueadero/editar-parqueadero.component';
 import { EditarSedeComponent } from './lista-sede/editar-sede/editar-sede.component';
+import { EditarEmpleadoComponent } from './lista-empleados/editar-empleado/editar-empleado.component';
+import { EditarTarifaComponent } from './lista-tarifas/editar-tarifa/editar-tarifa.component';
 
 
 @NgModule({
@@ -51,7 +53,9 @@ import { EditarSedeComponent } from './lista-sede/editar-sede/editar-sede.compon
     CrearTarifaComponent,
     ListaTarifasComponent,
     EditarParqueaderoComponent,
-    EditarSedeComponent
+    EditarSedeComponent,
+    EditarEmpleadoComponent,
+    EditarTarifaComponent
   ],
   imports: [
     BrowserModule,
