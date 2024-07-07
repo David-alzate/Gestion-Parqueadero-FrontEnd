@@ -6,6 +6,7 @@ import { SedeService } from '../services/sede/sede.service';
 import swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { EditarSedeComponent } from './editar-sede/editar-sede.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Sede {
   id: any;
@@ -40,7 +41,8 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
   constructor(
     private sedeService: SedeService,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -102,7 +104,11 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
           }
         },
         error => {
-          console.error(error);
+          this._snackBar.open(error.error.mensajes[0], '', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
         });
       }
     });

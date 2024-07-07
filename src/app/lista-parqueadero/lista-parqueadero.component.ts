@@ -6,6 +6,7 @@ import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.servi
 import swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
 import { EditarParqueaderoComponent } from './editar-parqueadero/editar-parqueadero.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 interface Parqueadero {
   id: any;
@@ -29,7 +30,8 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
   constructor(
     private parqueaderosService: ParqueaderosService,
     private cdr: ChangeDetectorRef,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -91,7 +93,11 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
           }
         },
         error => {
-          console.error(error);
+          this._snackBar.open(error.error.mensajes[0], '', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
         });
       }
     });
