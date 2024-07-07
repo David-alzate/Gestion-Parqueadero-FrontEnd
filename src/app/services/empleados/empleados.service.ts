@@ -18,4 +18,8 @@ export class EmpleadosService {
   public saveEmpleado(empleado: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, empleado);
   }
+
+  public deleteEmpleado(id: any): Observable<any> {
+    return this.httpCliente.delete(this.API_SERVER + id);
+  }
 }

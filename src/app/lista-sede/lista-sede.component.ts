@@ -3,8 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { SedeService } from '../services/sede/sede.service';
+import swal from 'sweetalert2';
 
 interface Sede {
+  id: any;
   nombreParqueadero: string;
   nombre: string;
   correo: string;
@@ -69,7 +71,37 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
     });
   }
 
-  eliminarSedes() {
-    // Lógica para eliminar sede
+  eliminarSede(sede: { id: any; }): void {
+    swal({
+      title: '¿Estás seguro?',
+      text: "Confirma si deseas eliminar la sede",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínala',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result) => {
+      if (result.value) {
+        this.sedeService.deleteSede(sede.id).subscribe(resp => {
+          const index = this.sedes.findIndex(e => e.id === sede.id);
+          if (index > -1) {
+            this.sedes.splice(index, 1);
+            this.dataSource.data = this.sedes;
+            swal(
+              'Sede eliminado',
+              'La Sede ha sido eliminado con éxito',
+              'success'
+            );
+          }
+        },
+        error => {
+          console.error(error);
+        });
+      }
+    });
   }
 }

@@ -3,8 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { TarifasService } from '../services/tarifas/tarifas.service';
+import swal from 'sweetalert2';
 
 interface Tarifa {
+  id: any;
   sede: string;
   tipoVehiculo: string;
   tipoTarifa: string;
@@ -63,6 +65,40 @@ export class ListaTarifasComponent implements OnInit{
     },
     error => {
       console.error(error);
+    });
+  }
+
+  eliminarTarifa(tarifa: { id: any; }): void {
+    swal({
+      title: '¿Estás seguro?',
+      text: "Confirma si deseas eliminar la Tarifa",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result) => {
+      if (result.value) {
+        this.tarifasService.deleteTarifa(tarifa.id).subscribe(resp => {
+          const index = this.tarifas.findIndex(e => e.id === tarifa.id);
+          if (index > -1) {
+            this.tarifas.splice(index, 1);
+            this.dataSource.data = this.tarifas;
+            swal(
+              'Tarifa eliminado',
+              'La Tarifa ha sido eliminado con éxito',
+              'success'
+            );
+          }
+        },
+        error => {
+          console.error(error);
+        });
+      }
     });
   }
 

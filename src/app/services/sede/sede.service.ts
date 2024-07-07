@@ -18,4 +18,8 @@ export class SedeService {
   public saveSede(sede: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, sede);
   }
+
+  public deleteSede(id: any): Observable<any> {
+    return this.httpCliente.delete(this.API_SERVER + id);
+  }
 }

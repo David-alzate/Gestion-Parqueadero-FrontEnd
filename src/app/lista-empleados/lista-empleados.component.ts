@@ -3,8 +3,10 @@ import { EmpleadosService } from '../services/empleados/empleados.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
+import swal from 'sweetalert2';
 
 interface Empleado {
+  id: any;
   nombre: string;
   apellido: string;
   tipoIdentificacion: string;
@@ -63,6 +65,40 @@ export class ListaEmpleadosComponent{
     },
     error => {
       console.error(error);
+    });
+  }
+
+  eliminarEmpleado(empleado: { id: any; }): void {
+    swal({
+      title: '¿Estás seguro?',
+      text: "Confirma si deseas eliminar al empleado",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result) => {
+      if (result.value) {
+        this.empleadosService.deleteEmpleado(empleado.id).subscribe(resp => {
+          const index = this.empleados.findIndex(e => e.id === empleado.id);
+          if (index > -1) {
+            this.empleados.splice(index, 1);
+            this.dataSource.data = this.empleados;
+            swal(
+              'Empleado eliminado',
+              'El empleado ha sido eliminado con éxito',
+              'success'
+            );
+          }
+        },
+        error => {
+          console.error(error);
+        });
+      }
     });
   }
 

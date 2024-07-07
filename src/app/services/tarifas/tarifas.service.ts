@@ -18,4 +18,8 @@ export class TarifasService {
   public saveTarifa(tarifa: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, tarifa);
   }
+
+  public deleteTarifa(id: any): Observable<any> {
+    return this.httpCliente.delete(this.API_SERVER + id);
+  }
 }

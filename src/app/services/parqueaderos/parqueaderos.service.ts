@@ -18,4 +18,8 @@ export class ParqueaderosService {
   public saveParqueadero(parqueadero: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, parqueadero);
   }
+
+  public deleteParqueadero(id: any): Observable<any> {
+    return this.httpCliente.delete(this.API_SERVER + id);
+  }
 }

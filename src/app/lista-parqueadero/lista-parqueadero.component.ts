@@ -3,8 +3,10 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.service';
+import swal from 'sweetalert2';
 
 interface Parqueadero {
+  id: any;
   nombre: string;
 }
 
@@ -58,7 +60,37 @@ export class ListaParqueaderoComponent implements OnInit, AfterViewInit {
     });
   }
 
-  eliminarParqueadero() {
-    // Lógica para eliminar parqueadero
+  eliminarParqueadero(parqueadero: { id: any; }): void {
+    swal({
+      title: '¿Estás seguro?',
+      text: "Confirma si deseas eliminar al parqueadero",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result) => {
+      if (result.value) {
+        this.parqueaderosService.deleteParqueadero(parqueadero.id).subscribe(resp => {
+          const index = this.parqueaderos.findIndex(e => e.id === parqueadero.id);
+          if (index > -1) {
+            this.parqueaderos.splice(index, 1);
+            this.dataSource.data = this.parqueaderos;
+            swal(
+              'Parqueadero eliminado',
+              'El parqueadero ha sido eliminado con éxito',
+              'success'
+            );
+          }
+        },
+        error => {
+          console.error(error);
+        });
+      }
+    });
   }
 }
