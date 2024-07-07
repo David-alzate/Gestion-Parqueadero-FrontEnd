@@ -17,7 +17,7 @@
                 <mat-label>Tipo Vehiculo</mat-label>
                 <mat-select formControlName="tipoVehiculo">
                     <mat-option *ngFor="let item of tipoVehiculo" [value]="item">
-                        {{ item.nombre }}
+                        {{ item.tipoVehiculo }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -26,7 +26,7 @@
                 <mat-label>Tipo Tarifa</mat-label>
                 <mat-select formControlName="tipoTarifa">
                     <mat-option *ngFor="let item of tipoTarifa" [value]="item">
-                        {{ item.nombre }}
+                        {{ item.tipoTarifa }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
@@ -40,12 +40,12 @@
                 <mat-label>Estado</mat-label>
                 <mat-select formControlName="estado">
                     <mat-option *ngFor="let item of estado" [value]="item">
-                        {{ item.nombre }}
+                        {{ item.estado }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field class="ancho">
+            <mat-form-field class="ancho" style="margin-bottom: 10px;">
                 <mat-label>Fecha Inicio vigencia</mat-label>
                 <input matInput [matDatepicker]="fechainiciovigencia" formControlName="fechainiciovigencia">
                 <mat-hint>MM/DD/YYYY</mat-hint>

@@ -9,6 +9,7 @@ import { CrearEmpleadoComponent } from './crear-empleado/crear-empleado.componen
 import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
 import { AuthGuard } from './auth.guard';
 import { CrearTarifaComponent } from './crear-tarifa/crear-tarifa.component';
+import { ListaTarifasComponent } from './lista-tarifas/lista-tarifas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/parqueadero', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'empleado', component: CrearEmpleadoComponent, canActivate: [AuthGuard] },
   { path: 'lista-empleados', component: ListaEmpleadosComponent, canActivate: [AuthGuard] },
   { path: 'tarifa', component: CrearTarifaComponent, canActivate: [AuthGuard] },
+  { path: 'lista-tarifas', component: ListaTarifasComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }
 ];
 

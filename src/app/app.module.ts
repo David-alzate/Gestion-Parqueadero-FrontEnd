@@ -32,6 +32,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ListaTarifasComponent } from './lista-tarifas/lista-tarifas.component';
 
 
 
@@ -45,7 +46,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     LoginComponent,
     CrearEmpleadoComponent,
     ListaEmpleadosComponent,
-    CrearTarifaComponent
+    CrearTarifaComponent,
+    ListaTarifasComponent
   ],
   imports: [
     BrowserModule,
