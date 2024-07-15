@@ -1,74 +1,77 @@
-  <div class="body">
-    <div class="crear-sede">
-      <form [formGroup]="sedeForm" (ngSubmit)="guardarSede()">
-        <h1 class="titulo" style="margin-bottom: 50px;">Crear Sede</h1>
-        <mat-form-field class="ancho">
-          <mat-label>Nombre Parqueadero</mat-label>
-          <mat-select formControlName="parqueadero">
-            <mat-option *ngFor="let item of parqueaderos" [value]="item">
-              {{ item.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Nombre Sede</mat-label>
-          <input type="text" matInput formControlName="nombre">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Correo</mat-label>
-          <input type="text" matInput formControlName="correoElectronico">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Tipo Sede</mat-label>
-          <mat-select formControlName="tipoSede">
-            <mat-option *ngFor="let item of tipoSedes" [value]="item">
-              {{ item.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Pais</mat-label>
-          <mat-select formControlName="pais">
-            <mat-option *ngFor="let item of paises" [value]="item">
-              {{ item.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Departamento</mat-label>
-          <mat-select formControlName="departamento">
-            <mat-option *ngFor="let item of departamentos" [value]="item">
-              {{ item.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>ciudad</mat-label>
-          <mat-select formControlName="ciudad">
-            <mat-option *ngFor="let item of ciudades" [value]="item">
-              {{ item.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Direccion</mat-label>
-          <input type="text" matInput formControlName="direccion">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Cantidad De Celdas Carro</mat-label>
-          <input type="number" matInput formControlName="celdasCarro">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Cantidad De Celdas Moto</mat-label>
-          <input type="number" matInput formControlName="celdasMoto">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Cantidad De Celdas Camion</mat-label>
-          <input type="number" matInput formControlName="celdascamion">
-        </mat-form-field>
-        <br>
-        <button type="submit" class="ancho boton" mat-flat-button [disabled]="sedeForm.invalid"
-          color="primary">Crear Sede</button>
-      </form>
-    </div>
+<div class="body">
+  <div class="crear-sede">
+    <form [formGroup]="sedeForm" (ngSubmit)="guardarSede()">
+      <h1 class="titulo" style="margin-bottom: 50px;">Crear Sede</h1>
+      <mat-form-field class="ancho">
+        <mat-label>Nombre Parqueadero</mat-label>
+        <mat-select formControlName="parqueadero">
+          <mat-option *ngFor="let item of parqueaderos" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Nombre Sede</mat-label>
+        <input type="text" matInput formControlName="nombre">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Correo</mat-label>
+        <input type="text" matInput formControlName="correoElectronico">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Tipo Sede</mat-label>
+        <mat-select formControlName="tipoSede">
+          <mat-option *ngFor="let item of tipoSedes" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="ancho">
+        <mat-label>Pais</mat-label>
+        <input type="text" placeholder="Seleccionar pais" matInput [formControl]="paisControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          <mat-option *ngFor="let item of filteredPaises | async" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+
+      <mat-form-field class="ancho">
+        <mat-label>Departamento</mat-label>
+        <mat-select formControlName="departamento">
+          <mat-option *ngFor="let item of departamentos" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>ciudad</mat-label>
+        <mat-select formControlName="ciudad">
+          <mat-option *ngFor="let item of ciudades" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Direccion</mat-label>
+        <input type="text" matInput formControlName="direccion">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Cantidad De Celdas Carro</mat-label>
+        <input type="number" matInput formControlName="celdasCarro">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Cantidad De Celdas Moto</mat-label>
+        <input type="number" matInput formControlName="celdasMoto">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Cantidad De Celdas Camion</mat-label>
+        <input type="number" matInput formControlName="celdascamion">
+      </mat-form-field>
+      <br>
+      <button type="submit" class="ancho boton" mat-flat-button [disabled]="sedeForm.invalid" color="primary">Crear
+        Sede</button>
+    </form>
   </div>
+</div>

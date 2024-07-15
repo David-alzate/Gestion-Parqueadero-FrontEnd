@@ -38,6 +38,11 @@ import { EditarParqueaderoComponent } from './lista-parqueadero/editar-parqueade
 import { EditarSedeComponent } from './lista-sede/editar-sede/editar-sede.component';
 import { EditarEmpleadoComponent } from './lista-empleados/editar-empleado/editar-empleado.component';
 import { EditarTarifaComponent } from './lista-tarifas/editar-tarifa/editar-tarifa.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
+import { CrearVehiculoComponent } from './crear-vehiculo/crear-vehiculo.component';
+import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
+import { ListaVehiculosComponent } from './lista-vehiculos/lista-vehiculos.component';
 
 
 @NgModule({
@@ -55,7 +60,11 @@ import { EditarTarifaComponent } from './lista-tarifas/editar-tarifa/editar-tari
     EditarParqueaderoComponent,
     EditarSedeComponent,
     EditarEmpleadoComponent,
-    EditarTarifaComponent
+    EditarTarifaComponent,
+    CrearClienteComponent,
+    CrearVehiculoComponent,
+    ListaClientesComponent,
+    ListaVehiculosComponent
   ],
   imports: [
     BrowserModule,
@@ -80,7 +89,8 @@ import { EditarTarifaComponent } from './lista-tarifas/editar-tarifa/editar-tari
     MatSortModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule
+    MatDialogModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,22 @@
+<div class="body">
+    <div class="crear-empleado">
+      <form [formGroup]="vehiculoForm" (ngSubmit)="guardarVehiculo()">
+        <h1 class="titulo" style="margin-bottom: 50px;">Crear Vehiculo</h1>
+        <mat-form-field class="ancho">
+          <mat-label>Placa Del Vehiculo</mat-label>
+          <input type="text" matInput formControlName="placa">
+        </mat-form-field>
+        <mat-form-field class="ancho">
+          <mat-label>Tipo Vehiculo</mat-label>
+          <mat-select formControlName="tipoVehiculo">
+            <mat-option *ngFor="let item of tipoVehiculo" [value]="item">
+              {{ item.tipoVehiculo }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <br>
+        <button type="submit" class="ancho boton" mat-flat-button [disabled]="vehiculoForm.invalid"
+          color="primary">Registrar Vehiculo</button>
+      </form>
+    </div>
+  </div>

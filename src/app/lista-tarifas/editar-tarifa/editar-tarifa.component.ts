@@ -113,13 +113,17 @@ export class EditarTarifaComponent implements OnInit {
       this.tarifasService.updateTarifa(this.id, parqueaderoData).subscribe(
         (response) => {
           this._snackBar.open(response.mensajes[0], '', {
-            duration: 3000
-          });
+            duration: 1500,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          })
           this.dialogRef.close(true);
         },
         (error) => {
-          this._snackBar.open(error.mensajes[0], '', {
-            duration: 3000
+          this._snackBar.open(error.error.mensajes[0], '', {
+            duration: 3000,
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
           });
         }
       );

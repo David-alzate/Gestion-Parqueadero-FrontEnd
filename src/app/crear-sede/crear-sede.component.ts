@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { SedeService } from '../services/sede/sede.service';
 import { PaisesService } from '../services/paises/paises.service';
 import { DepartamentosService } from '../services/departamentos/departamentos.service';
@@ -7,7 +7,8 @@ import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.servi
 import { TipoSedeService } from '../services/tipoSede/tipo-sede.service';
 import { CiudadesService } from '../services/ciudades/ciudaes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -17,13 +18,14 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class CrearSedeComponent implements OnInit {
 
   sedeForm: FormGroup;
-  paises: any;
+  paisControl = new FormControl();
+  paises: any[] = [];
+  filteredPaises!: Observable<any[]>;
   departamentos: any;
   parqueaderos: any;
   tipoSedes: any;
   ciudades: any;
   sede: any[] = [];
-
 
   constructor(
     public fb: FormBuilder,
@@ -40,7 +42,7 @@ export class CrearSedeComponent implements OnInit {
       nombre: ['', Validators.required],
       correoElectronico: ['', Validators.required],
       tipoSede: ['', Validators.required],
-      pais: ['', Validators.required],
+      pais: this.paisControl, // Actualizamos para usar el nuevo FormControl
       departamento: ['', Validators.required],
       ciudad: ['', Validators.required],
       direccion: ['', Validators.required],
@@ -48,29 +50,30 @@ export class CrearSedeComponent implements OnInit {
       celdasMoto: ['', Validators.required],
       celdascamion: ['', Validators.required],
     });
-
   }
 
   ngOnInit(): void {
-
     this.paisesService.getAllPaises().subscribe(resp => {
-      this.paises = resp.datos
-    },
-      error => { console.error(error) }
-    );
+      this.paises = resp.datos;
+      this.filteredPaises = this.paisControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filterPaises(value))
+      );
+    }, error => {
+      console.error(error);
+    });
 
     this.parqueaderosService.getAllParqueaderos().subscribe(resp => {
-      this.parqueaderos = resp.datos
-    },
-      error => { console.error(error) }
-    );
+      this.parqueaderos = resp.datos;
+    }, error => {
+      console.error(error);
+    });
 
     this.tipoSedeService.getAllTipoSedes().subscribe(resp => {
-      this.tipoSedes = resp.datos
-    },
-      error => { console.error(error) }
-    );
-
+      this.tipoSedes = resp.datos;
+    }, error => {
+      console.error(error);
+    });
 
     this.sedeForm.get('pais')?.valueChanges.subscribe(value => {
       if (value !== null) {
@@ -93,6 +96,15 @@ export class CrearSedeComponent implements OnInit {
     });
   }
 
+  private _filterPaises(value: any): any[] {
+    const filterValue = typeof value === 'string' ? value.toLowerCase() : value.nombre.toLowerCase();
+    return this.paises.filter(pais => pais.nombre.toLowerCase().includes(filterValue));
+  }
+
+  displayFn(pais: any): string {
+    return pais ? pais.nombre : '';
+  }
+
   guardarSede(): void {
     if (this.sedeForm.valid) {
       this.sedeService.saveSede(this.sedeForm.value).subscribe(
@@ -101,7 +113,7 @@ export class CrearSedeComponent implements OnInit {
             duration: 2000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
-          })
+          });
           this.sedeForm.reset();
           this.sede.push(resp);
         },
@@ -111,7 +123,7 @@ export class CrearSedeComponent implements OnInit {
             duration: 2000,
             horizontalPosition: 'center',
             verticalPosition: 'top',
-          })
+          });
         }
       );
     } else {
@@ -119,11 +131,7 @@ export class CrearSedeComponent implements OnInit {
         duration: 1500,
         horizontalPosition: 'center',
         verticalPosition: 'top',
-      })
+      });
     }
   }
-
 }
-
-
-
