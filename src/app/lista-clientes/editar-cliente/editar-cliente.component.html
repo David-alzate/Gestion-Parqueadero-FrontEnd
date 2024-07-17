@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Editar Cliente</h2>
+<mat-dialog-content>
+    <div class="body">
+        <div class="crear-empleado">
+          <form [formGroup]="ClienteForm">
+            <mat-form-field class="ancho">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput formControlName="nombre">
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Apellido</mat-label>
+              <input type="text" matInput formControlName="apellido">
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Tipo Identificacion</mat-label>
+              <mat-select formControlName="tipoIdentificacion">
+                <mat-option *ngFor="let item of tipoIdentificacion" [value]="item">
+                  {{ item.nombre }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Numero Identificacion</mat-label>
+              <input type="number" matInput formControlName="numeroIdentificacion">
+            </mat-form-field>
+            <mat-form-field class="ancho">
+              <mat-label>Correo Electronico</mat-label>
+              <input type="text" matInput formControlName="correoElectronico">
+            </mat-form-field>
+            <br>
+          </form>
+        </div>
+      </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button (click)="cancelar()" mat-button>Cancelar</button>
+  <button mat-button (click)="actualizarCliente()" color="primary" cdkFocusInitial>Editar</button>
+</mat-dialog-actions>
