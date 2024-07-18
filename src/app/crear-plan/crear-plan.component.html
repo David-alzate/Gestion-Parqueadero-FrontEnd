@@ -1,0 +1,63 @@
+<div class="body">
+  <div class="crear-plan">
+    <form [formGroup]="PlanForm" (ngSubmit)="guardarPlan()">
+      <h1 class="titulo" style="margin-bottom: 50px;">Crear Plan</h1>
+
+      <mat-form-field class="ancho">
+        <mat-label>Sede</mat-label>
+        <mat-select formControlName="sede">
+          <mat-option *ngFor="let item of sede" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="ancho">
+        <mat-label>Vehiculo</mat-label>
+        <mat-select formControlName="vehiculo">
+          <mat-option *ngFor="let item of vehiculo" [value]="item">
+            {{ item.placa }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="ancho">
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="cliente">
+          <mat-option *ngFor="let item of cliente" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="ancho">
+        <mat-label>Tipo Plan</mat-label>
+        <mat-select formControlName="tipoPlan">
+          <mat-option *ngFor="let item of tipoPlan" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="ancho" style="margin-bottom: 10px;">
+        <mat-label>Fecha Inicio vigencia</mat-label>
+        <input matInput [matDatepicker]="fechainiciovigencia" formControlName="fechaInicio">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="fechainiciovigencia"></mat-datepicker-toggle>
+        <mat-datepicker #fechainiciovigencia></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="ancho">
+        <mat-label>Fecha Fin vigencia</mat-label>
+        <input matInput [matDatepicker]="fechafinvigencia" formControlName="fechaFin">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="fechafinvigencia"></mat-datepicker-toggle>
+        <mat-datepicker #fechafinvigencia></mat-datepicker>
+      </mat-form-field>
+
+      <br>
+      <button type="submit" class="ancho boton" mat-flat-button [disabled]="PlanForm.invalid" color="primary">Crear
+        Plan</button>
+    </form>
+  </div>
+</div>

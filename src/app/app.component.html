@@ -32,6 +32,11 @@
   <button mat-menu-item routerLink="/vehiculo">Crear Vehiculo</button>
   <button mat-menu-item routerLink="/lista-vehiculos">Gestion Vehiculos</button>
 </mat-menu>
+<button mat-button [matMenuTriggerFor]="planes">Planes</button>
+<mat-menu #planes="matMenu">
+  <button mat-menu-item routerLink="/planes">Crear Plan</button>
+  <button mat-menu-item routerLink="/lista-planes">Gestion Planes</button>
+</mat-menu>
 <button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesion">
   <mat-icon>logout</mat-icon>
 </button>

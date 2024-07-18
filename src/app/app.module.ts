@@ -45,6 +45,7 @@ import { ListaClientesComponent } from './lista-clientes/lista-clientes.componen
 import { ListaVehiculosComponent } from './lista-vehiculos/lista-vehiculos.component';
 import { EditarClienteComponent } from './lista-clientes/editar-cliente/editar-cliente.component';
 import { EditarVehiculoComponent } from './lista-vehiculos/editar-vehiculo/editar-vehiculo.component';
+import { CrearPlanComponent } from './crear-plan/crear-plan.component';
 
 
 @NgModule({
@@ -68,7 +69,8 @@ import { EditarVehiculoComponent } from './lista-vehiculos/editar-vehiculo/edita
     ListaClientesComponent,
     ListaVehiculosComponent,
     EditarClienteComponent,
-    EditarVehiculoComponent
+    EditarVehiculoComponent,
+    CrearPlanComponent
   ],
   imports: [
     BrowserModule,
