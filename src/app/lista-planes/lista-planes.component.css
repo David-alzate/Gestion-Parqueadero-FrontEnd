@@ -1,0 +1,17 @@
+table {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  th {
+    width: 8%;
+  }
+
+.pointer {
+    cursor: pointer;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 100%;
+}

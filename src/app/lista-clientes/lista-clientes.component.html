@@ -1,6 +1,6 @@
 <div class="contenedor">
     <mat-toolbar class="toolbar">
-        <span>Empleados</span>
+        <span>Clientes</span>
         <div class="example-spacer"></div>
     </mat-toolbar>
 
@@ -40,11 +40,11 @@
                 <ng-container matColumnDef="acciones">
                     <th mat-header-cell *matHeaderCellDef></th>
                     <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
-                        <a class="pointer" (click)="editarCliente(element)" style="color: #1f516f;" matTooltip="Editar Empleado">
+                        <a class="pointer" (click)="editarCliente(element)" style="color: #1f516f;" matTooltip="Editar Cliente">
                             <mat-icon>edit</mat-icon>
                         </a>
                         <a class="pointer" (click)="eliminarCliente(element)" style="color: #e15639;"
-                            matTooltip="Eliminar Empleado">
+                            matTooltip="Eliminar Cliente">
                             <mat-icon>delete</mat-icon>
                         </a>
                     </td>

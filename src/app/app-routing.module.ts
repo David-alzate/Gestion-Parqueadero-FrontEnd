@@ -15,6 +15,7 @@ import { CrearVehiculoComponent } from './crear-vehiculo/crear-vehiculo.componen
 import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
 import { ListaVehiculosComponent } from './lista-vehiculos/lista-vehiculos.component';
 import { CrearPlanComponent } from './crear-plan/crear-plan.component';
+import { ListaPlanesComponent } from './lista-planes/lista-planes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/parqueadero', pathMatch: 'full' },
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'vehiculo', component: CrearVehiculoComponent, canActivate: [AuthGuard] },
   { path: 'lista-vehiculos', component: ListaVehiculosComponent, canActivate: [AuthGuard] },
   { path: 'planes', component: CrearPlanComponent, canActivate: [AuthGuard] },
+  { path: 'lista-planes', component: ListaPlanesComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent }
 ];
 
