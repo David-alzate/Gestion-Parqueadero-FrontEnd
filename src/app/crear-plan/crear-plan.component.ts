@@ -6,6 +6,9 @@ import { ClientesService } from '../services/clientes/clientes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TipoPlanesService } from '../services/tipoPlanes/tipo-planes.service';
 import { PlanesService } from '../services/planes/planes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { CrearVehiculoComponent } from '../crear-vehiculo/crear-vehiculo.component';
+import { CrearClienteComponent } from '../crear-cliente/crear-cliente.component';
 
 @Component({
   selector: 'app-crear-plan',
@@ -28,7 +31,8 @@ export class CrearPlanComponent implements OnInit {
     public clienteService: ClientesService,
     public tipoPlanService: TipoPlanesService,
     public planService: PlanesService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    public dialog: MatDialog
   ) {
     this.PlanForm = this.fb.group({
       sede: ['', Validators.required],
@@ -100,4 +104,43 @@ export class CrearPlanComponent implements OnInit {
       })
     }
   }
+
+  cargarVehiculos() {
+    this.vehiculoService.getAllVehiculos().subscribe(resp => {
+      this.vehiculo = resp.datos;
+    });
+  }
+
+  cargarCliente() {
+    this.clienteService.getAllClientes().subscribe(resp => {
+      this.cliente = resp.datos;
+    });
+  }
+
+  crearVehiculo() {
+    const dialogRef = this.dialog.open(CrearVehiculoComponent, {
+      width: '700px',
+      height: '600px',
+      disableClose: true,
+      data: { esDialogo: true }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        this. cargarVehiculos();
+    });    
+  }
+
+  crearCliente() {
+    const dialogRef = this.dialog.open(CrearClienteComponent, {
+      width: '700px',
+      disableClose: true,
+      data: { esDialogo: true }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+        this. cargarCliente();
+    });    
+  }
+
+
 }

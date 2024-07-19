@@ -1,34 +1,36 @@
 <div class="body">
-    <div class="crear-empleado">
-      <form [formGroup]="ClienteForm" (ngSubmit)="guardarCliente()">
-        <h1 class="titulo" style="margin-bottom: 50px;">Crear Cliente</h1>
-        <mat-form-field class="ancho">
-          <mat-label>Nombre</mat-label>
-          <input type="text" matInput formControlName="nombre">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Apellido</mat-label>
-          <input type="text" matInput formControlName="apellido">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Tipo Identificacion</mat-label>
-          <mat-select formControlName="tipoIdentificacion">
-            <mat-option *ngFor="let item of tipoIdentificacion" [value]="item">
-              {{ item.nombre }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Numero Identificacion</mat-label>
-          <input type="number" matInput formControlName="numeroIdentificacion">
-        </mat-form-field>
-        <mat-form-field class="ancho">
-          <mat-label>Correo Electronico</mat-label>
-          <input type="text" matInput formControlName="correoElectronico">
-        </mat-form-field>
-        <br>
-        <button type="submit" class="ancho boton" mat-flat-button [disabled]="ClienteForm.invalid"
-          color="primary">Crear Cliente</button>
-      </form>
-    </div>
+  <div class="crear-empleado">
+    <form [formGroup]="ClienteForm" (ngSubmit)="guardarCliente()">
+      <h1 class="titulo" style="margin-bottom: 50px;">Crear Cliente</h1>
+      <mat-form-field class="ancho">
+        <mat-label>Nombre</mat-label>
+        <input type="text" matInput formControlName="nombre">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Apellido</mat-label>
+        <input type="text" matInput formControlName="apellido">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Tipo Identificacion</mat-label>
+        <mat-select formControlName="tipoIdentificacion">
+          <mat-option *ngFor="let item of tipoIdentificacion" [value]="item">
+            {{ item.nombre }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Numero Identificacion</mat-label>
+        <input type="number" matInput formControlName="numeroIdentificacion">
+      </mat-form-field>
+      <mat-form-field class="ancho">
+        <mat-label>Correo Electronico</mat-label>
+        <input type="text" matInput formControlName="correoElectronico">
+      </mat-form-field>
+      <br>
+      <button type="submit" class="ancho boton" mat-flat-button [disabled]="ClienteForm.invalid" color="primary">Crear
+        Cliente</button>
+      <button *ngIf="esDialogo" type="button" class="ancho boton" mat-flat-button color="warn"
+        (click)="cerrarDialogo()">Cancelar</button>
+    </form>
   </div>
+</div>

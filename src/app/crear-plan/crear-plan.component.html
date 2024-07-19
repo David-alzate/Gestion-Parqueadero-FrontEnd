@@ -12,23 +12,31 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="ancho">
-        <mat-label>Vehiculo</mat-label>
-        <mat-select formControlName="vehiculo">
-          <mat-option *ngFor="let item of vehiculo" [value]="item">
-            {{ item.placa }}
+      <div class="vehiculo-container">
+        <mat-form-field class="vehiculo-field">
+          <mat-label>Vehiculo</mat-label>
+          <mat-select formControlName="vehiculo">
+            <mat-option *ngFor="let item of vehiculo" [value]="item">
+              {{ item.placa }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <button type="button" class="vehiculo-button" (click)="crearVehiculo()" mat-flat-button color="primary">Crear Vehiculo</button>
+      </div>
+
+      <div class="cliente-container"> 
+      <mat-form-field class="cliente-field">
+        <mat-label>Cliente</mat-label>
+        <mat-select formControlName="cliente">
+          <mat-option *ngFor="let item of cliente" [value]="item">
+            {{ item.numeroIdentificacion }}
           </mat-option>
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="ancho">
-        <mat-label>Cliente</mat-label>
-        <mat-select formControlName="cliente">
-          <mat-option *ngFor="let item of cliente" [value]="item">
-            {{ item.nombre }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <button type="button" class="cliente-button" (click)="crearCliente()" mat-flat-button color="primary">Crear Cliente</button>
+    </div>
 
       <mat-form-field class="ancho">
         <mat-label>Tipo Plan</mat-label>

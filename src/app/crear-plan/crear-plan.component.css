@@ -3,19 +3,19 @@
     justify-content: center;
     height: 90%;
     align-items: center;
-}
-
-.crear-plan {
+  }
+  
+  .crear-plan {
     width: 100%;
     max-width: 600px;
     text-align: center;
-}
-
-.ancho {
+  }
+  
+  .ancho {
     width: 100%;
-}
-
-.boton {
+  }
+  
+  .boton {
     padding: 10px;
     color: black;
     border: none;
@@ -24,4 +24,38 @@
     font-size: 18px;
     margin-top: 2%;
     margin-bottom: 5%;
-}
+  }
+  
+  .vehiculo-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .vehiculo-field {
+    flex: 2;
+    margin-right: 10px;
+  }
+  
+  .vehiculo-button {
+    flex: 1;
+    white-space: nowrap;
+    max-width: 120px;
+  }
+  
+
+  .cliente-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .cliente-field {
+    flex: 2;
+    margin-right: 10px;
+  }
+  
+  .cliente-button {
+    flex: 1;
+    white-space: nowrap;
+    max-width: 120px;
+  }
+  

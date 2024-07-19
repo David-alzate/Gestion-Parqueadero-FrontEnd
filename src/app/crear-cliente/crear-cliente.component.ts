@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, Optional } from '@angular/core';
 import { TipoIdentificacionService } from '../services/tipoIdentificacion/tipo-identificacion.service';
 import { ClientesService } from '../services/clientes/clientes.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-crear-cliente',
@@ -14,12 +15,15 @@ export class CrearClienteComponent implements OnInit {
   ClienteForm: FormGroup;
   tipoIdentificacion: any;
   cliente: any[] = [];
+  esDialogo: boolean = false;
 
   constructor(
     public fb: FormBuilder,
     public clienteService: ClientesService,
     public tipoIdentificacionService: TipoIdentificacionService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    @Optional() public dialogRef: MatDialogRef<CrearClienteComponent>,
+    @Optional() @Inject(MAT_DIALOG_DATA) public data: any
   ){
     this.ClienteForm = this.fb.group({
       nombre: ['', Validators.required],
@@ -29,6 +33,9 @@ export class CrearClienteComponent implements OnInit {
       correoElectronico: ['', Validators.required],
     });
 
+    if (data && data.esDialogo) {
+      this.esDialogo = true;
+    }
   }
   ngOnInit(): void {
     this.tipoIdentificacionService.getAllTipoIdentificaciones().subscribe(resp => {
@@ -51,6 +58,10 @@ export class CrearClienteComponent implements OnInit {
           this.ClienteForm.reset();
           this.cliente.push(resp);
           console.log(resp);
+
+          if (this.esDialogo && this.dialogRef) {
+            this.dialogRef.close();
+          }
         },
         error => {
           console.error(error);
@@ -67,6 +78,12 @@ export class CrearClienteComponent implements OnInit {
         horizontalPosition: 'center',
         verticalPosition: 'top',
       })
+    }
+  }
+
+  cerrarDialogo() {
+    if (this.dialogRef) {
+      this.dialogRef.close();
     }
   }
 
