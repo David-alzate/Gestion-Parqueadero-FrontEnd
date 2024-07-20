@@ -50,17 +50,30 @@ export class LoginComponent implements OnInit {
       this.loginService.login(this.loginForm.value).subscribe(
         resp => {
           if (resp.success) {
-            this.authService.login();
+            this.authService.login(resp.tipoEmpleado);
             this.loading = true;
-            setTimeout(() => {
-              this.router.navigate(['/admin']);
-            }, 1000);
-            const mensaje = resp.mensajes[0];
-            this._snackBar.open(mensaje, '', {
-              duration: 1000,
-              horizontalPosition: 'center',
-              verticalPosition: 'top',
-            })
+            if (resp.tipoEmpleado == "Administrador"){
+              setTimeout(() => {
+                this.router.navigate(['/admin']);
+              }, 1000);
+              const mensaje = resp.mensajes[0];
+              this._snackBar.open(mensaje, '', {
+                duration: 1000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+              })
+            }
+            if (resp.tipoEmpleado == "Empleado"){
+              setTimeout(() => {
+                this.router.navigate(['/empleado']);
+              }, 1000);
+              const mensaje = resp.mensajes[0];
+              this._snackBar.open(mensaje, '', {
+                duration: 1000,
+                horizontalPosition: 'center',
+                verticalPosition: 'top',
+              })
+            }
           } else {
             const mensaje = resp.mensajes[0];
             this._snackBar.open(mensaje, '', {

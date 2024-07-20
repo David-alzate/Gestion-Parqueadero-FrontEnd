@@ -26,6 +26,7 @@ import { EditarSedeComponent } from '../lista-sede/editar-sede/editar-sede.compo
 import { EditarParqueaderoComponent } from '../lista-parqueadero/editar-parqueadero/editar-parqueadero.component';
 import { EditarEmpleadoComponent } from '../lista-empleados/editar-empleado/editar-empleado.component';
 import { EditarClienteComponent } from '../lista-clientes/editar-cliente/editar-cliente.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -58,6 +59,7 @@ import { EditarClienteComponent } from '../lista-clientes/editar-cliente/editar-
   imports: [
     CommonModule,
     PgAdminRoutingModule,
+    RouterModule,
     SharedModule
   ]
 })

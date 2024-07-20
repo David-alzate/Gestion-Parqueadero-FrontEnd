@@ -16,11 +16,13 @@ import { ListaVehiculosComponent } from '../lista-vehiculos/lista-vehiculos.comp
 import { CrearPlanComponent } from '../crear-plan/crear-plan.component';
 import { ListaPlanesComponent } from '../lista-planes/lista-planes.component';;
 import { PgAdminComponent } from './pg-admin.component';
+import { AdminGuard } from '../auth-admin.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: PgAdminComponent,
+    canActivate: [AdminGuard],
     children: [
       { path: 'parqueadero', component: CrearParqueaderoComponent },
       { path: 'sede', component: CrearSedeComponent },
