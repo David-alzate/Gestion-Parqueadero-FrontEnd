@@ -12,31 +12,41 @@
         </mat-select>
       </mat-form-field>
 
-      <div class="vehiculo-container">
-        <mat-form-field class="vehiculo-field">
-          <mat-label>Vehiculo</mat-label>
-          <mat-select formControlName="vehiculo">
-            <mat-option *ngFor="let item of vehiculo" [value]="item">
+      <div class="input-button-container">
+        <mat-form-field class="input-field">
+          <mat-label>Vehículo</mat-label>
+          <input type="text" placeholder="Seleccionar vehículo" matInput [formControl]="vehiculoControl"
+            [matAutocomplete]="autoVehiculo">
+          <mat-autocomplete #autoVehiculo="matAutocomplete" [displayWith]="displayVehiculoFn">
+            <mat-option *ngFor="let item of filteredVehiculos | async" [value]="item">
               {{ item.placa }}
             </mat-option>
-          </mat-select>
+          </mat-autocomplete>
+          <mat-error *ngIf="vehiculoControl.hasError('required')">El campo vehículo es obligatorio</mat-error>
+          <mat-error *ngIf="vehiculoControl.hasError('invalidItem')">Seleccione un vehículo válido</mat-error>
         </mat-form-field>
 
-        <button type="button" class="vehiculo-button" (click)="crearVehiculo()" mat-flat-button color="primary">Crear Vehiculo</button>
+        <button type="button" class="action-button" (click)="crearVehiculo()" mat-flat-button color="primary">Crear
+          Vehículo</button>
       </div>
 
-      <div class="cliente-container"> 
-      <mat-form-field class="cliente-field">
-        <mat-label>Cliente</mat-label>
-        <mat-select formControlName="cliente">
-          <mat-option *ngFor="let item of cliente" [value]="item">
-            {{ item.numeroIdentificacion }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
+      <div class="input-button-container">
+        <mat-form-field class="input-field">
+          <mat-label>Cliente</mat-label>
+          <input type="text" placeholder="Seleccionar cliente" matInput [formControl]="clienteControl"
+            [matAutocomplete]="autoCliente">
+          <mat-autocomplete #autoCliente="matAutocomplete" [displayWith]="displayClienteFn">
+            <mat-option *ngFor="let item of filteredClientes | async" [value]="item">
+              {{ item.numeroIdentificacion }}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-error *ngIf="clienteControl.hasError('required')">El campo cliente es obligatorio</mat-error>
+          <mat-error *ngIf="clienteControl.hasError('invalidItem')">Seleccione un cliente válido</mat-error>
+        </mat-form-field>
 
-      <button type="button" class="cliente-button" (click)="crearCliente()" mat-flat-button color="primary">Crear Cliente</button>
-    </div>
+        <button type="button" class="action-button" (click)="crearCliente()" mat-flat-button color="primary">Crear
+          Cliente</button>
+      </div>
 
       <mat-form-field class="ancho">
         <mat-label>Tipo Plan</mat-label>

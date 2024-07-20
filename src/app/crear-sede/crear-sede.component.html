@@ -35,6 +35,8 @@
             {{ item.nombre }}
           </mat-option>
         </mat-autocomplete>
+        <mat-error *ngIf="paisControl.hasError('required')">El campo país es obligatorio</mat-error>
+        <mat-error *ngIf="paisControl.hasError('invalidCountry')">Seleccione un país válido</mat-error>
       </mat-form-field>
 
       <mat-form-field class="ancho">

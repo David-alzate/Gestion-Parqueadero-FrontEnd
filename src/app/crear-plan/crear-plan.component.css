@@ -1,61 +1,50 @@
 .body {
-    display: flex;
-    justify-content: center;
-    height: 90%;
-    align-items: center;
-  }
-  
-  .crear-plan {
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
-  }
-  
-  .ancho {
-    width: 100%;
-  }
-  
-  .boton {
-    padding: 10px;
-    color: black;
-    border: none;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 2%;
-    margin-bottom: 5%;
-  }
-  
-  .vehiculo-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .vehiculo-field {
-    flex: 2;
-    margin-right: 10px;
-  }
-  
-  .vehiculo-button {
-    flex: 1;
-    white-space: nowrap;
-    max-width: 120px;
-  }
-  
+  display: flex;
+  justify-content: center;
+  height: 90%;
+  align-items: center;
+}
 
-  .cliente-container {
-    display: flex;
-    align-items: center;
-  }
-  
-  .cliente-field {
-    flex: 2;
-    margin-right: 10px;
-  }
-  
-  .cliente-button {
-    flex: 1;
-    white-space: nowrap;
-    max-width: 120px;
-  }
-  
+.crear-plan {
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.ancho {
+  width: 100%;
+}
+
+.boton {
+  padding: 10px;
+  color: black;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 2%;
+  margin-bottom: 5%;
+}
+
+.input-button-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  flex: 2;
+  margin-right: 10px;
+}
+
+.action-button {
+  flex: 1;
+  white-space: nowrap;
+  min-width: 120px;
+  max-width: 150px;
+  padding: 8px 16px;
+}
+
+.mat-form-field {
+  width: 100%;
+}

@@ -9,7 +9,7 @@ import { CiudadesService } from '../services/ciudades/ciudaes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-
+import { validItemValidator } from '../validators/custom-validators';
 @Component({
   selector: 'app-root',
   templateUrl: './crear-sede.component.html',
@@ -18,7 +18,7 @@ import { map, startWith } from 'rxjs/operators';
 export class CrearSedeComponent implements OnInit {
 
   sedeForm: FormGroup;
-  paisControl = new FormControl();
+  paisControl = new FormControl('', [Validators.required]);
   paises: any[] = [];
   filteredPaises!: Observable<any[]>;
   departamentos: any;
@@ -42,7 +42,7 @@ export class CrearSedeComponent implements OnInit {
       nombre: ['', Validators.required],
       correoElectronico: ['', Validators.required],
       tipoSede: ['', Validators.required],
-      pais: this.paisControl, // Actualizamos para usar el nuevo FormControl
+      pais: this.paisControl,
       departamento: ['', Validators.required],
       ciudad: ['', Validators.required],
       direccion: ['', Validators.required],
@@ -59,6 +59,8 @@ export class CrearSedeComponent implements OnInit {
         startWith(''),
         map(value => this._filterPaises(value))
       );
+
+      this.paisControl.setValidators([Validators.required, validItemValidator(this.paises)]);
     }, error => {
       console.error(error);
     });
