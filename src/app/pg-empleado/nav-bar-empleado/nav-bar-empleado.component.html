@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <span>Gestion Vehiculos</span>
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="ingreso">Ingreso Vehiculo</button>
+  <mat-menu #ingreso="matMenu">
+    <button mat-menu-item [routerLink]="['/empleado/ingreso-vehiculo']">
+      ingresar Vehiculo
+    </button>
+  </mat-menu>
+  <button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesion">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

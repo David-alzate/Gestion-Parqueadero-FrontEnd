@@ -1,39 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CrearParqueaderoComponent } from './crear-parqueadero/crear-parqueadero.component';
-import { CrearSedeComponent } from './crear-sede/crear-sede.component';
-import { ListaSedeComponent } from './lista-sede/lista-sede.component';
-import { ListaParqueaderoComponent } from './lista-parqueadero/lista-parqueadero.component';
 import { LoginComponent } from './login/login.component';
-import { CrearEmpleadoComponent } from './crear-empleado/crear-empleado.component';
-import { ListaEmpleadosComponent } from './lista-empleados/lista-empleados.component';
 import { AuthGuard } from './auth.guard';
-import { CrearTarifaComponent } from './crear-tarifa/crear-tarifa.component';
-import { ListaTarifasComponent } from './lista-tarifas/lista-tarifas.component';
-import { CrearClienteComponent } from './crear-cliente/crear-cliente.component';
-import { CrearVehiculoComponent } from './crear-vehiculo/crear-vehiculo.component';
-import { ListaClientesComponent } from './lista-clientes/lista-clientes.component';
-import { ListaVehiculosComponent } from './lista-vehiculos/lista-vehiculos.component';
-import { CrearPlanComponent } from './crear-plan/crear-plan.component';
-import { ListaPlanesComponent } from './lista-planes/lista-planes.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/parqueadero', pathMatch: 'full' },
-  { path: 'parqueadero', component: CrearParqueaderoComponent, canActivate: [AuthGuard] },
-  { path: 'sede', component: CrearSedeComponent, canActivate: [AuthGuard] },
-  { path: 'lista-sedes', component: ListaSedeComponent, canActivate: [AuthGuard] },
-  { path: 'lista-parqueaderos', component: ListaParqueaderoComponent, canActivate: [AuthGuard] },
-  { path: 'empleado', component: CrearEmpleadoComponent, canActivate: [AuthGuard] },
-  { path: 'lista-empleados', component: ListaEmpleadosComponent, canActivate: [AuthGuard] },
-  { path: 'tarifa', component: CrearTarifaComponent, canActivate: [AuthGuard] },
-  { path: 'lista-tarifas', component: ListaTarifasComponent, canActivate: [AuthGuard] },
-  { path: 'cliente', component: CrearClienteComponent, canActivate: [AuthGuard] },
-  { path: 'lista-clientes', component: ListaClientesComponent, canActivate: [AuthGuard] },
-  { path: 'vehiculo', component: CrearVehiculoComponent, canActivate: [AuthGuard] },
-  { path: 'lista-vehiculos', component: ListaVehiculosComponent, canActivate: [AuthGuard] },
-  { path: 'planes', component: CrearPlanComponent, canActivate: [AuthGuard] },
-  { path: 'lista-planes', component: ListaPlanesComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { 
+    path: 'admin', 
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pg-admin/pg-admin.module').then(m => m.PgAdminModule) 
+  },
+  { 
+    path: 'empleado', 
+    canActivate: [AuthGuard],
+    loadChildren: () => import('./pg-empleado/pg-empleado.module').then(m => m.PgEmpleadoModule) 
+  }
 ];
 
 @NgModule({

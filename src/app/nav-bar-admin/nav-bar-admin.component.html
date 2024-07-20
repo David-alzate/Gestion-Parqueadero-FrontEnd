@@ -1,0 +1,64 @@
+<mat-toolbar color="primary">
+  <span>Gestion Parqueadero</span>
+  <span class="example-spacer"></span>
+  <button mat-button [matMenuTriggerFor]="parqueadero">Parqueaderos</button>
+  <mat-menu #parqueadero="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/parqueadero']">
+      Crear Parqueadero
+    </button>
+    <button mat-menu-item [routerLink]="['/admin/lista-parqueaderos']">
+      Gestion Parqueaderos
+    </button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="sedes">Sedes</button>
+  <mat-menu #sedes="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/sede']">Crear Sede</button>
+    <button mat-menu-item [routerLink]="['/admin/lista-sedes']">
+      Gestion Sedes
+    </button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="empleados">Empleados</button>
+  <mat-menu #empleados="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/empleado']">
+      Crear Empleado
+    </button>
+    <button mat-menu-item [routerLink]="['/admin/lista-empleados']">
+      Gestion Empleados
+    </button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="tarifas">Tarifas</button>
+  <mat-menu #tarifas="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/tarifa']">Crear Tarifa</button>
+    <button mat-menu-item [routerLink]="['/admin/lista-tarifas']">
+      Gestion Tarifas
+    </button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="clientes">Cliente</button>
+  <mat-menu #clientes="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/cliente']">
+      Crear Cliente
+    </button>
+    <button mat-menu-item [routerLink]="['/admin/lista-clientes']">
+      Gestion Clientes
+    </button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="vehiculo">Vehiculo</button>
+  <mat-menu #vehiculo="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/vehiculo']">
+      Crear Vehiculo
+    </button>
+    <button mat-menu-item [routerLink]="['/admin/lista-vehiculos']">
+      Gestion Vehiculos
+    </button>
+  </mat-menu>
+  <button mat-button [matMenuTriggerFor]="planes">Planes</button>
+  <mat-menu #planes="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/planes']">Crear Plan</button>
+    <button mat-menu-item [routerLink]="['/admin/lista-planes']">
+      Gestion Planes
+    </button>
+  </mat-menu>
+  <button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesion">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>

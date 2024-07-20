@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
             this.authService.login();
             this.loading = true;
             setTimeout(() => {
-              this.router.navigate(['/parqueadero']);
+              this.router.navigate(['/admin']);
             }, 1000);
             const mensaje = resp.mensajes[0];
             this._snackBar.open(mensaje, '', {
