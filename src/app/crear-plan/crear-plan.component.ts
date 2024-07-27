@@ -94,11 +94,11 @@ export class CrearPlanComponent implements OnInit {
   }
 
   private _filterClientes(value: any): any[] {
-    // Asegúrate de que el valor de búsqueda sea una cadena
+
     const filterValue = typeof value === 'string' ? value.toLowerCase() : (value.numeroIdentificacion || '').toLowerCase();
 
     return this.clientes.filter(cliente => {
-      // Asegúrate de que numeroIdentificacion sea una cadena
+
       const numeroIdentificacion = cliente.numeroIdentificacion ? cliente.numeroIdentificacion.toString().toLowerCase() : '';
       return numeroIdentificacion.includes(filterValue);
     });

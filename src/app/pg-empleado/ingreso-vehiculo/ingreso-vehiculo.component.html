@@ -1,1 +1,46 @@
-<p>ingreso-vehiculo works!</p>
+<div class="body">
+    <div class="crear-empleado">
+        <form [formGroup]="ingresoVehiculoForm" (ngSubmit)="ingresarVehiculo()">
+            <h1 class="titulo" style="margin-bottom: 50px;">Ingresar Vehiculo</h1>
+
+            <mat-form-field class="ancho">
+                <mat-label>Sede</mat-label>
+                <mat-select formControlName="sede">
+                    <mat-option *ngFor="let item of sede" [value]="item">
+                        {{ item.nombre }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field class="ancho">
+                <mat-label>Empleado</mat-label>
+                <mat-select formControlName="tipoVehiculo">
+                    <mat-option *ngFor="let item of empleado" [value]="item">
+                        {{ item.numeroIdentificacion }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <mat-form-field class="ancho">
+                <mat-label>Placa Del Vehiculo</mat-label>
+                <input type="text" matInput formControlName="placa">
+            </mat-form-field>
+
+
+            <mat-form-field class="ancho">
+                <mat-label>Tipo Vehiculo</mat-label>
+                <mat-select formControlName="tipoVehiculo">
+                    <mat-option *ngFor="let item of tipoVehiculo" [value]="item">
+                        {{ item.tipoVehiculo }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+
+            <br>
+            <button type="submit" class="ancho boton" mat-flat-button [disabled]="ingresoVehiculoForm.invalid"
+                color="primary">Ingresar Vehiculo</button>
+        </form>
+    </div>
+</div>
