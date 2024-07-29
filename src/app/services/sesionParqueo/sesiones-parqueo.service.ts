@@ -16,7 +16,11 @@ export class SesionesParqueoService {
   }
 
   public ingresarVehiculo(sede: any): Observable<any> {
-    return this.httpCliente.post(this.API_SERVER, sede);
+    return this.httpCliente.post(this.API_SERVER + "ingresoVehiculo", sede);
+  }
+
+  public salidaVehiculo(sede: any): Observable<any> {
+    return this.httpCliente.post(this.API_SERVER + "salidaVehiculo", sede);
   }
 
   public deleteSesion(id: any): Observable<any> {

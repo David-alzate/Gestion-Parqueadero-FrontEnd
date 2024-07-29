@@ -14,19 +14,17 @@
 
             <mat-form-field class="ancho">
                 <mat-label>Empleado</mat-label>
-                <mat-select formControlName="tipoVehiculo">
+                <mat-select formControlName="empleado">
                     <mat-option *ngFor="let item of empleado" [value]="item">
                         {{ item.numeroIdentificacion }}
                     </mat-option>
                 </mat-select>
             </mat-form-field>
 
-
             <mat-form-field class="ancho">
                 <mat-label>Placa Del Vehiculo</mat-label>
-                <input type="text" matInput formControlName="placa">
+                <input type="text" matInput formControlName="placa" appUppercase>
             </mat-form-field>
-
 
             <mat-form-field class="ancho">
                 <mat-label>Tipo Vehiculo</mat-label>
@@ -36,7 +34,6 @@
                     </mat-option>
                 </mat-select>
             </mat-form-field>
-
 
             <br>
             <button type="submit" class="ancho boton" mat-flat-button [disabled]="ingresoVehiculoForm.invalid"

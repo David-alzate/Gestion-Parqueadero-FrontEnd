@@ -4,7 +4,7 @@
       <h1 class="titulo" style="margin-bottom: 50px;">Crear Vehiculo</h1>
       <mat-form-field class="ancho">
         <mat-label>Placa Del Vehiculo</mat-label>
-        <input type="text" matInput formControlName="placa">
+        <input type="text" matInput formControlName="placa" appUppercase>
       </mat-form-field>
       <mat-form-field class="ancho">
         <mat-label>Tipo Vehiculo</mat-label>
@@ -15,8 +15,10 @@
         </mat-select>
       </mat-form-field>
       <br>
-      <button type="submit" class="ancho boton" mat-flat-button [disabled]="vehiculoForm.invalid" color="primary">Registrar Vehiculo</button>
-      <button *ngIf="esDialogo" type="button" class="ancho boton" mat-flat-button color="warn" (click)="cerrarDialogo()">Cancelar</button>
+      <button type="submit" class="ancho boton" mat-flat-button [disabled]="vehiculoForm.invalid"
+        color="primary">Registrar Vehiculo</button>
+      <button *ngIf="esDialogo" type="button" class="ancho boton" mat-flat-button color="warn"
+        (click)="cerrarDialogo()">Cancelar</button>
     </form>
   </div>
 </div>

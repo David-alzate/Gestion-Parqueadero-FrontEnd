@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { SedeService } from '../services/sede/sede.service';
 import { VehiculosService } from '../services/vehiculos/vehiculos.service';
@@ -11,7 +11,6 @@ import { CrearVehiculoComponent } from '../crear-vehiculo/crear-vehiculo.compone
 import { CrearClienteComponent } from '../crear-cliente/crear-cliente.component';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { validItemValidator } from '../validators/custom-validators';
 
 @Component({
   selector: 'app-crear-plan',
@@ -40,7 +39,8 @@ export class CrearPlanComponent implements OnInit {
     public tipoPlanService: TipoPlanesService,
     public planService: PlanesService,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private changeDetectorRef: ChangeDetectorRef
   ) {
     this.PlanForm = this.fb.group({
       sede: ['', Validators.required],
@@ -59,27 +59,8 @@ export class CrearPlanComponent implements OnInit {
       console.error(error);
     });
 
-    this.vehiculoService.getAllVehiculos().subscribe(resp => {
-      this.vehiculos = resp.datos;
-      this.filteredVehiculos = this.vehiculoControl.valueChanges.pipe(
-        startWith(''),
-        map(value => this._filterVehiculos(value))
-      );
-      this.vehiculoControl.setValidators([Validators.required, validItemValidator(this.vehiculos)]);
-    }, error => {
-      console.error(error);
-    });
-
-    this.clienteService.getAllClientes().subscribe(resp => {
-      this.clientes = resp.datos;
-      this.filteredClientes = this.clienteControl.valueChanges.pipe(
-        startWith(''),
-        map(value => this._filterClientes(value))
-      );
-      this.clienteControl.setValidators([Validators.required, validItemValidator(this.clientes)]);
-    }, error => {
-      console.error(error);
-    });
+    this.cargarVehiculos();
+    this.cargarClientes();
 
     this.tipoPlanService.getAllTipoPlanes().subscribe(resp => {
       this.tipoPlan = resp.datos;
@@ -94,11 +75,8 @@ export class CrearPlanComponent implements OnInit {
   }
 
   private _filterClientes(value: any): any[] {
-
     const filterValue = typeof value === 'string' ? value.toLowerCase() : (value.numeroIdentificacion || '').toLowerCase();
-
     return this.clientes.filter(cliente => {
-
       const numeroIdentificacion = cliente.numeroIdentificacion ? cliente.numeroIdentificacion.toString().toLowerCase() : '';
       return numeroIdentificacion.includes(filterValue);
     });
@@ -147,12 +125,20 @@ export class CrearPlanComponent implements OnInit {
   cargarVehiculos() {
     this.vehiculoService.getAllVehiculos().subscribe(resp => {
       this.vehiculos = resp.datos;
+      this.filteredVehiculos = this.vehiculoControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filterVehiculos(value))
+      );
     });
   }
 
-  cargarCliente() {
+  cargarClientes() {
     this.clienteService.getAllClientes().subscribe(resp => {
       this.clientes = resp.datos;
+      this.filteredClientes = this.clienteControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filterClientes(value))
+      );
     });
   }
 
@@ -166,6 +152,8 @@ export class CrearPlanComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       this.cargarVehiculos();
+      this.vehiculoControl.setValue(result);
+      this.changeDetectorRef.detectChanges();
     });
   }
 
@@ -177,7 +165,9 @@ export class CrearPlanComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.cargarCliente();
+      this.cargarClientes();
+      this.clienteControl.setValue(result);
+      this.changeDetectorRef.detectChanges();
     });
   }
 }

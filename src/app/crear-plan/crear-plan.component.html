@@ -16,7 +16,7 @@
         <mat-form-field class="input-field">
           <mat-label>Vehículo</mat-label>
           <input type="text" placeholder="Seleccionar vehículo" matInput [formControl]="vehiculoControl"
-            [matAutocomplete]="autoVehiculo">
+            [matAutocomplete]="autoVehiculo" appUppercase>
           <mat-autocomplete #autoVehiculo="matAutocomplete" [displayWith]="displayVehiculoFn">
             <mat-option *ngFor="let item of filteredVehiculos | async" [value]="item">
               {{ item.placa }}

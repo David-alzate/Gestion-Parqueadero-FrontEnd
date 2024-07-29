@@ -21,11 +21,12 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { UppercaseDirective } from '../validators/uppercase.directive';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [UppercaseDirective],
   imports: [
     CommonModule,
     MatInputModule,
@@ -71,6 +72,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatAutocompleteModule,
     FormsModule,
     ReactiveFormsModule,
+    UppercaseDirective
   ]
 })
 export class SharedModule { }

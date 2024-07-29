@@ -27,6 +27,7 @@ import { EditarParqueaderoComponent } from '../lista-parqueadero/editar-parquead
 import { EditarEmpleadoComponent } from '../lista-empleados/editar-empleado/editar-empleado.component';
 import { EditarClienteComponent } from '../lista-clientes/editar-cliente/editar-cliente.component';
 import { RouterModule } from '@angular/router';
+import { UppercaseDirective } from '../validators/uppercase.directive';
 
 
 
@@ -54,7 +55,7 @@ import { RouterModule } from '@angular/router';
     EditarSedeComponent,
     EditarParqueaderoComponent,
     EditarEmpleadoComponent,
-    EditarClienteComponent
+    EditarClienteComponent,
   ],
   imports: [
     CommonModule,

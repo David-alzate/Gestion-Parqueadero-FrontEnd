@@ -13,12 +13,13 @@ import { IngresoVehiculoComponent } from './ingreso-vehiculo/ingreso-vehiculo.co
   declarations: [
     NavBarEmpleadoComponent,
     PgEmpleadoComponent,
-    IngresoVehiculoComponent
+    IngresoVehiculoComponent,
   ],
   imports: [
     CommonModule,
     PgEmpleadoRoutingModule,
-    SharedModule
+    SharedModule,
+
   ]
 })
 export class PgEmpleadoModule { }
