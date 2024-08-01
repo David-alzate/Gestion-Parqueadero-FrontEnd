@@ -28,6 +28,7 @@ interface Sede {
   templateUrl: './lista-sede.component.html',
   styleUrls: ['./lista-sede.component.css']
 })
+
 export class ListaSedeComponent implements OnInit, AfterViewInit {
 
   sedes: Sede[] = [];
@@ -43,7 +44,7 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
     private cdr: ChangeDetectorRef,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.cargarSedes();
@@ -71,9 +72,9 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
         this.paginator._changePageSize(this.paginator.pageSize);
       }
     },
-    error => {
-      console.error(error);
-    });
+      error => {
+        console.error(error);
+      });
   }
 
   eliminarSede(sede: { id: any; }): void {
@@ -103,13 +104,13 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
             );
           }
         },
-        error => {
-          this._snackBar.open(error.error.mensajes[0], '', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
+          error => {
+            this._snackBar.open(error.error.mensajes[0], '', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
           });
-        });
       }
     });
   }
@@ -126,5 +127,5 @@ export class ListaSedeComponent implements OnInit, AfterViewInit {
         this.cargarSedes();
       }
     });
-  } 
+  }
 }
