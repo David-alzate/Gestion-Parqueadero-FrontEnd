@@ -32,7 +32,7 @@
             </mat-form-field>
 
             <mat-form-field class="ancho">
-                <mat-label>Tarifa</mat-label>
+                <mat-label>Valor Tarifa</mat-label>
                 <input type="number" matInput formControlName="tarifa">
             </mat-form-field>
 
@@ -51,18 +51,19 @@
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="fechainiciovigencia"></mat-datepicker-toggle>
                 <mat-datepicker #fechainiciovigencia></mat-datepicker>
-              </mat-form-field>
+            </mat-form-field>
 
-              <mat-form-field class="ancho">
+            <mat-form-field class="ancho">
                 <mat-label>Fecha Fin vigencia</mat-label>
                 <input matInput [matDatepicker]="fechafinvigencia" formControlName="fechaFinVigencia">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="fechafinvigencia"></mat-datepicker-toggle>
                 <mat-datepicker #fechafinvigencia></mat-datepicker>
-              </mat-form-field>
+            </mat-form-field>
 
             <br>
-            <button type="submit" class="ancho boton" mat-flat-button [disabled]="TarifaForm.invalid" color="primary">Crear Tarifa</button>
+            <button type="submit" class="ancho boton" mat-flat-button [disabled]="TarifaForm.invalid"
+                color="primary">Crear Tarifa</button>
         </form>
     </div>
 </div>

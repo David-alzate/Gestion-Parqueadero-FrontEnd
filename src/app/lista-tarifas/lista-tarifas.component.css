@@ -1,17 +1,57 @@
 table {
-    width: 100%;
-    margin-top: 10px;
-  }
+  width: 100%;
+  margin-top: 10px;
+  table-layout: auto;
+}
 
-  th {
-    width: 10%;
-  }
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  width: auto;
+}
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .mat-mdc-form-field {
   font-size: 14px;
   width: 100%;
+}
+
+.body {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+
+  th,
+  td {
+    padding: 4px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .pointer {
+    display: block;
+    text-align: left;
+  }
 }

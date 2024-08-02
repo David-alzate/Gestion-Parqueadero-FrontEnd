@@ -1,9 +1,10 @@
 .body {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
-  height: 90%;
   align-items: center;
 }
+
 
 .crear-plan {
   width: 100%;

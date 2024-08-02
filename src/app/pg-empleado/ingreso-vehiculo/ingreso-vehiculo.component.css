@@ -1,9 +1,10 @@
 .body {
+    margin-top: 15px;
     display: flex;
     justify-content: center;
-    height: 70%;
     align-items: center;
 }
+
 
 .crear-empleado {
     width: 100%;
