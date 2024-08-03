@@ -7,8 +7,8 @@
 
         <div *ngIf="sesiones.length > 0">
             <mat-form-field>
-                <mat-label>Buscar</mat-label>
-                <input matInput (keyup)="applyFilter($event)" #input>
+                <mat-label>Buscar Placa del vehiculo</mat-label>
+                <input matInput (keyup)="applyFilter($event)" appUppercase #input>
             </mat-form-field>
             <div class="mat-elevation-z8">
                 <table mat-table [dataSource]="dataSource" matSort>

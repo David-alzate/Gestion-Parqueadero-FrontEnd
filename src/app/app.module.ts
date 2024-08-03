@@ -9,13 +9,15 @@ import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { UppercaseDirective } from './validators/uppercase.directive';
 import { HistorialSesionesParqueoComponent } from './historial-sesiones-parqueo/historial-sesiones-parqueo.component';
+import { EditarSesionParqueoComponent } from './historial-sesiones-parqueo/editar-sesion-parqueo/editar-sesion-parqueo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    HistorialSesionesParqueoComponent
+    HistorialSesionesParqueoComponent,
+    EditarSesionParqueoComponent
   ],
   imports: [
     BrowserModule,

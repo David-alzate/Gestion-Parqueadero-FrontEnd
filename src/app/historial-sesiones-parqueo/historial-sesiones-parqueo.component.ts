@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SesionesParqueoService } from '../services/sesionParqueo/sesiones-parqueo.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import swal from 'sweetalert2';
+import { EditarSesionParqueoComponent } from './editar-sesion-parqueo/editar-sesion-parqueo.component';
 
 interface SesionesParqueo {
   id: any;
@@ -69,11 +71,53 @@ export class HistorialSesionesParqueoComponent implements OnInit, AfterViewInit 
       });
   }
 
-  eliminarSesion(sede: { id: any; }): void {
+  eliminarSesion(sesion: { id: any; }): void {
+    swal({
+      title: '¿Estás seguro?',
+      text: "Confirma si deseas eliminar la sesion de parqueo",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result) => {
+      if (result.value) {
+        this.sesionesParqueoService.deleteSesion(sesion.id).subscribe(resp => {
+          const index = this.sesiones.findIndex(e => e.id === sesion.id);
+          if (index > -1) {
+            this.sesiones.splice(index, 1);
+            this.dataSource.data = this.sesiones;
+            swal(
+              'Sesion de parqueo eliminada',
+              'La sesion de parqueo ha sido eliminado con éxito',
+              'success'
+            );
+          }
+        },
+          error => {
+            console.error(error);
+          });
+      }
+    });
   }
 
 
   editarSesion(id: any) {
+    const dialogRef = this.dialog.open(EditarSesionParqueoComponent, {
+      width: '550px',
+      disableClose: true,
+      data: { id: id }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarSesiones();
+      }
+    });
   }
 
 }
