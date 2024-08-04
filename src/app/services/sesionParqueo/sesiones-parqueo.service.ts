@@ -15,6 +15,10 @@ export class SesionesParqueoService {
     return this.httpCliente.get(this.API_SERVER);
   }
 
+  public getAllSesionesActivas(): Observable<any> {
+    return this.httpCliente.get(this.API_SERVER + "activas");
+  }
+
   public ingresarVehiculo(sede: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER + "ingresoVehiculo", sede);
   }

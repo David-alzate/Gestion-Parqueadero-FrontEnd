@@ -10,6 +10,7 @@ import { SharedModule } from './shared/shared.module';
 import { UppercaseDirective } from './validators/uppercase.directive';
 import { HistorialSesionesParqueoComponent } from './historial-sesiones-parqueo/historial-sesiones-parqueo.component';
 import { EditarSesionParqueoComponent } from './historial-sesiones-parqueo/editar-sesion-parqueo/editar-sesion-parqueo.component';
+import { SesionesActivasComponent } from './historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { EditarSesionParqueoComponent } from './historial-sesiones-parqueo/edita
     AppComponent,
     LoginComponent,
     HistorialSesionesParqueoComponent,
-    EditarSesionParqueoComponent
+    EditarSesionParqueoComponent,
+    SesionesActivasComponent
   ],
   imports: [
     BrowserModule,

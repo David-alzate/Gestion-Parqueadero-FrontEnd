@@ -1,0 +1,69 @@
+<div class="body">
+    <div class="contenedor">
+        <mat-toolbar class="toolbar">
+            <span>Sesiones De parqueo</span>
+            <div class="example-spacer"></div>
+        </mat-toolbar>
+
+        <div *ngIf="sesiones.length > 0">
+            <mat-form-field>
+                <mat-label>Buscar Placa del vehiculo</mat-label>
+                <input matInput (keyup)="applyFilter($event)" appUppercase #input>
+            </mat-form-field>
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="sede">
+                        <th mat-header-cell *matHeaderCellDef> Nombre Sede </th>
+                        <td mat-cell *matCellDef="let element"> {{element.sede.nombre}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="placa">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Placa </th>
+                        <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="empleado">
+                        <th mat-header-cell *matHeaderCellDef> Empleado </th>
+                        <td mat-cell *matCellDef="let element"> {{element.empleado.numeroIdentificacion}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="estado">
+                        <th mat-header-cell *matHeaderCellDef> Estado </th>
+                        <td mat-cell *matCellDef="let element"> {{element.estado.estado}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="fechaHoraIngreso">
+                        <th mat-header-cell *matHeaderCellDef> Fecha Hora Ingreso </th>
+                        <td mat-cell *matCellDef="let element"> {{element.fechaHoraIngreso}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="fechaHoraSalida">
+                        <th mat-header-cell *matHeaderCellDef> Fecha Hora Salida </th>
+                        <td mat-cell *matCellDef="let element"> {{element.fechaHoraSalida}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="acciones">
+                        <th mat-header-cell *matHeaderCellDef></th>
+                        <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
+                            <a class="pointer" (click)="editarSesion(element)" style="color: #1f516f;"
+                                matTooltip="Editar Sesion">
+                                <mat-icon>edit</mat-icon>
+                            </a>
+                            <a class="pointer" (click)="eliminarSesion(element)" style="color: #e15639;"
+                                matTooltip="Eliminar Sesion">
+                                <mat-icon>delete</mat-icon>
+                            </a>
+                        </td>
+                    </ng-container>
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[10, 25, 100]" aria-label="Select page of sedes"></mat-paginator>
+            </div>
+        </div>
+        <h2 *ngIf="sesiones.length == 0">No hay registros para mostrar</h2>
+    </div>
+</div>

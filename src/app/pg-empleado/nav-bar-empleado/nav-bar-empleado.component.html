@@ -6,6 +6,9 @@
   </button>
   <button mat-button [matMenuTriggerFor]="sesionesParqueo">Gestionar Sesiones</button>
   <mat-menu #sesionesParqueo="matMenu">
+    <button mat-menu-item [routerLink]="['/empleado/sesiones-parqueo-activas']">
+      Sesiones Parqueo Activas
+    </button>
     <button mat-menu-item [routerLink]="['/empleado/historial-sesiones-parqueo']">
       Historial Sesiones Parqueo
     </button>

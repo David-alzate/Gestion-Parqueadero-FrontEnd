@@ -4,6 +4,7 @@ import { PgEmpleadoComponent } from './pg-empleado.component';
 import { IngresoVehiculoComponent } from './ingreso-vehiculo/ingreso-vehiculo.component';
 import { EmployeeGuard } from '../auth-empleado.guard';
 import { HistorialSesionesParqueoComponent } from '../historial-sesiones-parqueo/historial-sesiones-parqueo.component';
+import { SesionesActivasComponent } from '../historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,7 @@ const routes: Routes = [
     children: [
       { path: 'ingreso-vehiculo', component: IngresoVehiculoComponent },
       { path: 'historial-sesiones-parqueo', component: HistorialSesionesParqueoComponent },
+      { path: 'sesiones-parqueo-activas', component: SesionesActivasComponent },
     ]
   }
 ];
