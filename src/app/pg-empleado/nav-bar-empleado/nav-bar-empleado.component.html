@@ -13,6 +13,15 @@
       Historial Sesiones Parqueo
     </button>
   </mat-menu>
+  <button mat-button [matMenuTriggerFor]="planes">Planes</button>
+  <mat-menu #planes="matMenu">
+    <button mat-menu-item [routerLink]="['/empleado/crear-plan']">
+      Crear Plan
+    </button>
+    <button mat-menu-item [routerLink]="['/empleado/lista-plan']">
+      Gestionar Planes
+    </button>
+  </mat-menu>
   <button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesión">
     <mat-icon>logout</mat-icon>
   </button>

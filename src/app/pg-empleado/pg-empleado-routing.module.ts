@@ -5,6 +5,8 @@ import { IngresoVehiculoComponent } from './ingreso-vehiculo/ingreso-vehiculo.co
 import { EmployeeGuard } from '../auth-empleado.guard';
 import { HistorialSesionesParqueoComponent } from '../historial-sesiones-parqueo/historial-sesiones-parqueo.component';
 import { SesionesActivasComponent } from '../historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
+import { CrearPlanComponent } from '../crear-plan/crear-plan.component';
+import { ListaPlanesComponent } from '../lista-planes/lista-planes.component';
 
 const routes: Routes = [
   {
@@ -15,6 +17,8 @@ const routes: Routes = [
       { path: 'ingreso-vehiculo', component: IngresoVehiculoComponent },
       { path: 'historial-sesiones-parqueo', component: HistorialSesionesParqueoComponent },
       { path: 'sesiones-parqueo-activas', component: SesionesActivasComponent },
+      { path: 'crear-plan', component: CrearPlanComponent },
+      { path: 'lista-plan', component: ListaPlanesComponent },
     ]
   }
 ];
