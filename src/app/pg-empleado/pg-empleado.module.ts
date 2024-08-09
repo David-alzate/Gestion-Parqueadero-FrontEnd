@@ -6,6 +6,7 @@ import { SharedModule } from '../shared/shared.module';
 import { NavBarEmpleadoComponent } from './nav-bar-empleado/nav-bar-empleado.component';
 import { PgEmpleadoComponent } from './pg-empleado.component';
 import { IngresoVehiculoComponent } from './ingreso-vehiculo/ingreso-vehiculo.component';
+import { SalidaVehiculoComponent } from './salida-vehiculo/salida-vehiculo.component';
 
 
 
@@ -14,6 +15,7 @@ import { IngresoVehiculoComponent } from './ingreso-vehiculo/ingreso-vehiculo.co
     NavBarEmpleadoComponent,
     PgEmpleadoComponent,
     IngresoVehiculoComponent,
+    SalidaVehiculoComponent,
   ],
   imports: [
     CommonModule,

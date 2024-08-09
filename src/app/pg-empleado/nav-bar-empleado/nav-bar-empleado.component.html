@@ -4,6 +4,9 @@
   <button mat-button [routerLink]="['/empleado/ingreso-vehiculo']">
     ingresar Vehiculo
   </button>
+  <button mat-button [routerLink]="['/empleado/salida-vehiculo']">
+    Salida Vehiculo
+  </button>
   <button mat-button [matMenuTriggerFor]="sesionesParqueo">Gestionar Sesiones</button>
   <mat-menu #sesionesParqueo="matMenu">
     <button mat-menu-item [routerLink]="['/empleado/sesiones-parqueo-activas']">
