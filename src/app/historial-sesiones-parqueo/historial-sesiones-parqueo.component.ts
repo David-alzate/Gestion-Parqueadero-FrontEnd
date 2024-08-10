@@ -12,6 +12,7 @@ interface SesionesParqueo {
   id: any;
   sede: string;
   placa: string;
+  tipoVehiculo: string;
   empleado: string;
   estado: string;
   fechaHoraIngreso: string;
@@ -26,7 +27,7 @@ interface SesionesParqueo {
 export class HistorialSesionesParqueoComponent implements OnInit, AfterViewInit {
 
   sesiones: SesionesParqueo[] = [];
-  displayedColumns: string[] = ['sede', 'placa', 'empleado', 'estado', 'fechaHoraIngreso', 'fechaHoraSalida', 'acciones'];
+  displayedColumns: string[] = ['sede', 'placa', 'tipoVehiculo', 'empleado', 'estado', 'fechaHoraIngreso', 'fechaHoraSalida', 'acciones'];
   dataSource: MatTableDataSource<SesionesParqueo> = new MatTableDataSource<SesionesParqueo>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

@@ -23,6 +23,11 @@
                         <td mat-cell *matCellDef="let element"> {{element.placa}} </td>
                     </ng-container>
 
+                    <ng-container matColumnDef="tipoVehiculo">
+                        <th mat-header-cell *matHeaderCellDef> Tipo Vehiculo </th>
+                        <td mat-cell *matCellDef="let element"> {{element.tipoVehiculo.tipoVehiculo}} </td>
+                    </ng-container>
+
                     <ng-container matColumnDef="empleado">
                         <th mat-header-cell *matHeaderCellDef> Empleado </th>
                         <td mat-cell *matCellDef="let element"> {{element.empleado.numeroIdentificacion}} </td>

@@ -7,6 +7,7 @@ import { EmpleadosService } from 'src/app/services/empleados/empleados.service';
 import { EstadosService } from 'src/app/services/estados/estados.service';
 import { SedeService } from 'src/app/services/sede/sede.service';
 import { SesionesParqueoService } from 'src/app/services/sesionParqueo/sesiones-parqueo.service';
+import { TipoVehiculoService } from 'src/app/services/tipoVehiculo/tipo-vehiculo.service';
 
 @Component({
   selector: 'app-editar-sesion-parqueo',
@@ -20,6 +21,7 @@ export class EditarSesionParqueoComponent implements OnInit {
   SesionParqueoForm: FormGroup;
   id: any;
   sede: any;
+  tipoVehiculo: any;
   empleado: any;
 
   constructor(
@@ -27,11 +29,13 @@ export class EditarSesionParqueoComponent implements OnInit {
     public sedeService: SedeService,
     public empleadoService: EmpleadosService,
     public sesionParqueoService: SesionesParqueoService,
+    public tipoVehiculoService: TipoVehiculoService,
     private _snackBar: MatSnackBar
   ) {
     this.SesionParqueoForm = this.fb.group({
       sede: ['', Validators.required],
       placa: ['', Validators.required],
+      tipoVehiculo: ['', Validators.required],
       empleado: ['', Validators.required],
     });
     this.id = this.data.id.id;
@@ -45,7 +49,14 @@ export class EditarSesionParqueoComponent implements OnInit {
       this.empleadoService.getAllEmpleados().subscribe(respEmpleado => {
         this.empleado = respEmpleado.datos
 
-        this.cargarDatosSesiones();
+        this.tipoVehiculoService.getAllTipoVehiculo().subscribe(respTipoVehiculo => {
+          this.tipoVehiculo = respTipoVehiculo.datos
+
+          this.cargarDatosSesiones();
+
+        },
+          respTipoVehiculo => { console.error(respTipoVehiculo) }
+        );
 
       },
         errorEmpleado => { console.error(errorEmpleado) }
@@ -59,13 +70,16 @@ export class EditarSesionParqueoComponent implements OnInit {
   cargarDatosSesiones() {
     const sedeSeleccionada = this.data.id.sede;
     const empleadoSeleccionada = this.data.id.empleado;
+    const tipoVehiculoSeleccionada = this.data.id.tipoVehiculo;
 
     const sede = this.sede.find((sede: { id: any; }) => sede.id === sedeSeleccionada.id);
     const empleado = this.empleado.find((empleado: { id: any; }) => empleado.id === empleadoSeleccionada.id);
+    const tipoVehiculo = this.tipoVehiculo.find((tipoVehiculo: { id: any; }) => tipoVehiculo.id === tipoVehiculoSeleccionada.id);
 
     this.SesionParqueoForm.setValue({
       sede: sede,
       placa: this.data.id.placa,
+      tipoVehiculo: tipoVehiculo,
       empleado: empleado,
     });
   }

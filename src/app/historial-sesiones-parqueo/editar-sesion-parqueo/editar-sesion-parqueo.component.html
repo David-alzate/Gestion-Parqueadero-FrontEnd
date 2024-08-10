@@ -19,6 +19,15 @@
                 </mat-form-field>
 
                 <mat-form-field class="ancho">
+                    <mat-label>Tipo Vehiculo</mat-label>
+                    <mat-select formControlName="tipoVehiculo">
+                        <mat-option *ngFor="let item of tipoVehiculo" [value]="item">
+                            {{ item.tipoVehiculo }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="ancho">
                     <mat-label>Empleado</mat-label>
                     <mat-select formControlName="empleado">
                         <mat-option *ngFor="let item of empleado" [value]="item">
