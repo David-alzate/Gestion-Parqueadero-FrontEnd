@@ -33,6 +33,11 @@
                         <td mat-cell *matCellDef="let element"> {{element.tipoPlan.nombre}} </td>
                     </ng-container>
 
+                    <ng-container matColumnDef="estado">
+                        <th mat-header-cell *matHeaderCellDef> Estado </th>
+                        <td mat-cell *matCellDef="let element"> {{element.estado.estado}} </td>
+                    </ng-container>
+
                     <ng-container matColumnDef="fechaInicio">
                         <th mat-header-cell *matHeaderCellDef> Fecha Inicio Vigencia </th>
                         <td mat-cell *matCellDef="let element"> {{element.fechaInicio}} </td>

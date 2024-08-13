@@ -30,6 +30,7 @@ export class CrearPlanComponent implements OnInit {
   filteredVehiculos!: Observable<any[]>;
   clienteControl = new FormControl('', [Validators.required]);
   filteredClientes!: Observable<any[]>;
+  router: any;
 
   constructor(
     public fb: FormBuilder,
@@ -100,12 +101,13 @@ export class CrearPlanComponent implements OnInit {
             verticalPosition: 'top',
           });
           this.PlanForm.reset();
-          this.plan.push(resp);
-          console.log(resp);
+          setTimeout(() => {
+            this.plan.push(resp);
+            window.location.reload();
+          }, 2000);
         },
         error => {
           console.error(error);
-          console.log(this.PlanForm.value);
           this._snackBar.open(error.error.mensajes[0], '', {
             duration: 3000,
             horizontalPosition: 'center',

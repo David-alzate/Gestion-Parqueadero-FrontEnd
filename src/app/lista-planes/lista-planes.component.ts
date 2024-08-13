@@ -2,10 +2,6 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { SedeService } from '../services/sede/sede.service';
-import { VehiculosService } from '../services/vehiculos/vehiculos.service';
-import { ClientesService } from '../services/clientes/clientes.service';
-import { TipoPlanesService } from '../services/tipoPlanes/tipo-planes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import swal from 'sweetalert2';
@@ -18,6 +14,7 @@ interface Plan {
   vehiculo: any;
   cliente: any;
   tipoPlan: any;
+  estado: any;
   fechaInicio: any;
   fechaFin: any;
 }
@@ -27,10 +24,10 @@ interface Plan {
   templateUrl: './lista-planes.component.html',
   styleUrls: ['./lista-planes.component.css']
 })
-export class ListaPlanesComponent implements OnInit{
+export class ListaPlanesComponent implements OnInit {
 
   planes: Plan[] = [];
-  displayedColumns: string[] = ['sede', 'vehiculo', 'cliente', 'tipoPlan', 'fechaInicio', 'fechaFin', 'acciones'];
+  displayedColumns: string[] = ['sede', 'vehiculo', 'cliente', 'tipoPlan', 'estado', 'fechaInicio', 'fechaFin', 'acciones'];
   dataSource: MatTableDataSource<Plan> = new MatTableDataSource<Plan>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -41,11 +38,11 @@ export class ListaPlanesComponent implements OnInit{
     private cdr: ChangeDetectorRef,
     public dialog: MatDialog,
     private _snackBar: MatSnackBar
-  ) {}
+  ) { }
 
 
   ngOnInit(): void {
-    this. cargarPlanes();
+    this.cargarPlanes();
   }
 
   ngAfterViewInit() {
@@ -70,9 +67,9 @@ export class ListaPlanesComponent implements OnInit{
         this.paginator._changePageSize(this.paginator.pageSize);
       }
     },
-    error => {
-      console.error(error);
-    });
+      error => {
+        console.error(error);
+      });
   }
 
   eliminarSede(sede: { id: any; }): void {
@@ -102,13 +99,13 @@ export class ListaPlanesComponent implements OnInit{
             );
           }
         },
-        error => {
-          this._snackBar.open(error.error.mensajes[0], '', {
-            duration: 3000,
-            horizontalPosition: 'center',
-            verticalPosition: 'top',
+          error => {
+            this._snackBar.open(error.error.mensajes[0], '', {
+              duration: 3000,
+              horizontalPosition: 'center',
+              verticalPosition: 'top',
+            });
           });
-        });
       }
     });
   }
@@ -125,8 +122,8 @@ export class ListaPlanesComponent implements OnInit{
         this.cargarPlanes();
       }
     });
-  } 
+  }
 
-  
+
 
 }
