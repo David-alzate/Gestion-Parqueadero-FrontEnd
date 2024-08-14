@@ -8,6 +8,7 @@ import { SesionesActivasComponent } from '../historial-sesiones-parqueo/sesiones
 import { CrearPlanComponent } from '../crear-plan/crear-plan.component';
 import { ListaPlanesComponent } from '../lista-planes/lista-planes.component';
 import { SalidaVehiculoComponent } from './salida-vehiculo/salida-vehiculo.component';
+import { ListaPlanesActivosComponent } from '../lista-planes/lista-planes-activos/lista-planes-activos.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
       { path: 'sesiones-parqueo-activas', component: SesionesActivasComponent },
       { path: 'crear-plan', component: CrearPlanComponent },
       { path: 'lista-plan', component: ListaPlanesComponent },
+      { path: 'lista-plan-activos', component: ListaPlanesActivosComponent },
       { path: 'salida-vehiculo', component: SalidaVehiculoComponent },
     ]
   }

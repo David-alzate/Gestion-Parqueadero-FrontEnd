@@ -15,6 +15,10 @@ export class PlanesService {
     return this.httpCliente.get(this.API_SERVER);
   }
 
+  public getPlanesActivos(): Observable<any> {
+    return this.httpCliente.get(this.API_SERVER + "activos");
+  }
+
   public savePlan(plan: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, plan);
   }
@@ -23,7 +27,7 @@ export class PlanesService {
     return this.httpCliente.delete(this.API_SERVER + id);
   }
 
-  updatePlan(id: any, plan: {nombre: string}): Observable<any> {
+  updatePlan(id: any, plan: { nombre: string }): Observable<any> {
     return this.httpCliente.put(this.API_SERVER + id, plan);
   }
 }

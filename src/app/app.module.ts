@@ -11,6 +11,7 @@ import { UppercaseDirective } from './validators/uppercase.directive';
 import { HistorialSesionesParqueoComponent } from './historial-sesiones-parqueo/historial-sesiones-parqueo.component';
 import { EditarSesionParqueoComponent } from './historial-sesiones-parqueo/editar-sesion-parqueo/editar-sesion-parqueo.component';
 import { SesionesActivasComponent } from './historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
+import { ListaPlanesActivosComponent } from './lista-planes/lista-planes-activos/lista-planes-activos.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SesionesActivasComponent } from './historial-sesiones-parqueo/sesiones-
     LoginComponent,
     HistorialSesionesParqueoComponent,
     EditarSesionParqueoComponent,
-    SesionesActivasComponent
+    SesionesActivasComponent,
+    ListaPlanesActivosComponent
   ],
   imports: [
     BrowserModule,

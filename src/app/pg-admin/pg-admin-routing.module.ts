@@ -17,6 +17,7 @@ import { CrearPlanComponent } from '../crear-plan/crear-plan.component';
 import { ListaPlanesComponent } from '../lista-planes/lista-planes.component';;
 import { PgAdminComponent } from './pg-admin.component';
 import { AdminGuard } from '../auth-admin.guard';
+import { ListaPlanesActivosComponent } from '../lista-planes/lista-planes-activos/lista-planes-activos.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,9 @@ const routes: Routes = [
       { path: 'vehiculo', component: CrearVehiculoComponent },
       { path: 'lista-vehiculos', component: ListaVehiculosComponent },
       { path: 'planes', component: CrearPlanComponent },
-      { path: 'lista-planes', component: ListaPlanesComponent }
+      { path: 'lista-planes', component: ListaPlanesComponent },
+      { path: 'lista-planes-activos', component: ListaPlanesActivosComponent }
+
     ]
   }
 ];

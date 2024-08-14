@@ -21,8 +21,11 @@
     <button mat-menu-item [routerLink]="['/empleado/crear-plan']">
       Crear Plan
     </button>
+    <button mat-menu-item [routerLink]="['/empleado/lista-plan-activos']">
+      Planes Activos
+    </button>
     <button mat-menu-item [routerLink]="['/empleado/lista-plan']">
-      Gestionar Planes
+      Historial Planes
     </button>
   </mat-menu>
   <button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesión">

@@ -54,8 +54,11 @@
   <button mat-button [matMenuTriggerFor]="planes">Planes</button>
   <mat-menu #planes="matMenu">
     <button mat-menu-item [routerLink]="['/admin/planes']">Crear Plan</button>
+    <button mat-menu-item [routerLink]="['/admin/lista-planes-activos']">
+      Planes Activos
+    </button>
     <button mat-menu-item [routerLink]="['/admin/lista-planes']">
-      Gestion Planes
+      Historial Planes
     </button>
   </mat-menu>
   <button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesion">
