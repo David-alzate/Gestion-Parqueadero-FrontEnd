@@ -6,15 +6,15 @@ import { AuthGuard } from './auth.guard';
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { 
-    path: 'admin', 
+  {
+    path: 'admin',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./pg-admin/pg-admin.module').then(m => m.PgAdminModule) 
+    loadChildren: () => import('./pg-admin/pg-admin.module').then(m => m.PgAdminModule)
   },
-  { 
-    path: 'empleado', 
+  {
+    path: 'empleado',
     canActivate: [AuthGuard],
-    loadChildren: () => import('./pg-empleado/pg-empleado.module').then(m => m.PgEmpleadoModule) 
+    loadChildren: () => import('./pg-empleado/pg-empleado.module').then(m => m.PgEmpleadoModule)
   }
 ];
 
