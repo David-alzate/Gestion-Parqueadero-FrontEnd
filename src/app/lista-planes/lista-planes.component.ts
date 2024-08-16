@@ -27,7 +27,7 @@ interface Plan {
 export class ListaPlanesComponent implements OnInit {
 
   planes: Plan[] = [];
-  displayedColumns: string[] = ['sede', 'vehiculo', 'cliente', 'tipoPlan', 'estado', 'fechaInicio', 'fechaFin', 'acciones'];
+  displayedColumns: string[] = ['sede', 'vehiculo', 'cliente', 'tipoPlan', 'estado', 'fechaInicio', 'fechaFin'];
   dataSource: MatTableDataSource<Plan> = new MatTableDataSource<Plan>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

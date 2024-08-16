@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PgAdminRoutingModule } from './pg-admin-routing.module';
 import { PgAdminComponent } from './pg-admin.component';
-import { NavBarAdminComponent } from '../nav-bar-admin/nav-bar-admin.component';
+import { NavBarAdminComponent } from './nav-bar-admin/nav-bar-admin.component';
 import { SharedModule } from '../shared/shared.module';
 
 import { CrearParqueaderoComponent } from '../crear-parqueadero/crear-parqueadero.component';

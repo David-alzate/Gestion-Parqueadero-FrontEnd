@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../services/auth/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar-admin.component.css']
 })
 export class NavBarAdminComponent {
-  
-  constructor(private authService: AuthService, private router: Router) {}
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   logout() {
     console.log('Logout button clicked');

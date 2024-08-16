@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { CrearParqueaderoComponent } from '../crear-parqueadero/crear-parqueadero.component';
 import { CrearSedeComponent } from '../crear-sede/crear-sede.component';
 import { ListaSedeComponent } from '../lista-sede/lista-sede.component';
@@ -18,6 +17,8 @@ import { ListaPlanesComponent } from '../lista-planes/lista-planes.component';;
 import { PgAdminComponent } from './pg-admin.component';
 import { AdminGuard } from '../auth-admin.guard';
 import { ListaPlanesActivosComponent } from '../lista-planes/lista-planes-activos/lista-planes-activos.component';
+import { HistorialSesionesParqueoComponent } from '../historial-sesiones-parqueo/historial-sesiones-parqueo.component';
+import { SesionesActivasComponent } from '../historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,9 @@ const routes: Routes = [
       { path: 'lista-vehiculos', component: ListaVehiculosComponent },
       { path: 'planes', component: CrearPlanComponent },
       { path: 'lista-planes', component: ListaPlanesComponent },
-      { path: 'lista-planes-activos', component: ListaPlanesActivosComponent }
+      { path: 'lista-planes-activos', component: ListaPlanesActivosComponent },
+      { path: 'historial-sesiones-parqueo', component: HistorialSesionesParqueoComponent },
+      { path: 'sesiones-parqueo-activas', component: SesionesActivasComponent }
 
     ]
   }

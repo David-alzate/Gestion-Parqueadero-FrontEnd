@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Observable } from 'rxjs';
 import { EditarParqueaderoComponent } from 'src/app/lista-parqueadero/editar-parqueadero/editar-parqueadero.component';
 import { ClientesService } from 'src/app/services/clientes/clientes.service';
 import { PlanesService } from 'src/app/services/planes/planes.service';
@@ -43,8 +42,6 @@ export class EditarPlanComponent implements OnInit {
       vehiculo: ['', Validators.required],
       cliente: ['', Validators.required],
       tipoPlan: ['', Validators.required],
-      fechaInicio: ['', Validators.required],
-      fechaFin: ['', Validators.required],
     });
     this.id = this.data.id.id;
   }
@@ -99,8 +96,6 @@ export class EditarPlanComponent implements OnInit {
       vehiculo: vehiculo,
       cliente: cliente,
       tipoPlan: tipoPlan,
-      fechaInicio: this.data.id.fechaInicio,
-      fechaFin: this.data.id.fechaFin,
     });
   }
 

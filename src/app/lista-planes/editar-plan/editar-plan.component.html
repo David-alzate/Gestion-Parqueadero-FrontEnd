@@ -15,7 +15,7 @@
 
                 <mat-form-field class="ancho">
                     <mat-label>Vehiculo</mat-label>
-                    <mat-select formControlName="tipoPlan">
+                    <mat-select formControlName="vehiculo">
                         <mat-option *ngFor="let item of vehiculos" [value]="item">
                             {{ item.placa }}
                         </mat-option>
@@ -24,36 +24,11 @@
 
                 <mat-form-field class="ancho">
                     <mat-label>Cliente</mat-label>
-                    <mat-select formControlName="tipoPlan">
+                    <mat-select formControlName="cliente">
                         <mat-option *ngFor="let item of clientes" [value]="item">
                             {{ item.numeroIdentificacion }}
                         </mat-option>
                     </mat-select>
-                </mat-form-field>
-
-                <mat-form-field class="ancho">
-                    <mat-label>Tipo Plan</mat-label>
-                    <mat-select formControlName="tipoPlan">
-                        <mat-option *ngFor="let item of tipoPlan" [value]="item">
-                            {{ item.nombre }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-
-                <mat-form-field class="ancho" style="margin-bottom: 10px;">
-                    <mat-label>Fecha Inicio vigencia</mat-label>
-                    <input matInput [matDatepicker]="fechainiciovigencia" formControlName="fechaInicio">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="fechainiciovigencia"></mat-datepicker-toggle>
-                    <mat-datepicker #fechainiciovigencia></mat-datepicker>
-                </mat-form-field>
-
-                <mat-form-field class="ancho">
-                    <mat-label>Fecha Fin vigencia</mat-label>
-                    <input matInput [matDatepicker]="fechafinvigencia" formControlName="fechaFin">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="fechafinvigencia"></mat-datepicker-toggle>
-                    <mat-datepicker #fechafinvigencia></mat-datepicker>
                 </mat-form-field>
 
                 <br>

@@ -61,6 +61,15 @@
       Historial Planes
     </button>
   </mat-menu>
+  <button mat-button [matMenuTriggerFor]="sesiones">Sesiones Parqueo</button>
+  <mat-menu #sesiones="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/historial-sesiones-parqueo']">
+      Historial Sesiones Parqueo
+    </button>
+    <button mat-menu-item [routerLink]="['/admin/sesiones-parqueo-activas']">
+      Sesiones Parqueo Activas
+    </button>
+  </mat-menu>
   <button (click)="logout()" mat-icon-button matTooltip="Cerrar Sesion">
     <mat-icon>logout</mat-icon>
   </button>
