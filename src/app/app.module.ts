@@ -12,6 +12,7 @@ import { HistorialSesionesParqueoComponent } from './historial-sesiones-parqueo/
 import { EditarSesionParqueoComponent } from './historial-sesiones-parqueo/editar-sesion-parqueo/editar-sesion-parqueo.component';
 import { SesionesActivasComponent } from './historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
 import { ListaPlanesActivosComponent } from './lista-planes/lista-planes-activos/lista-planes-activos.component';
+import { CrearCeldasComponent } from './crear-celdas/crear-celdas.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ListaPlanesActivosComponent } from './lista-planes/lista-planes-activos
     HistorialSesionesParqueoComponent,
     EditarSesionParqueoComponent,
     SesionesActivasComponent,
-    ListaPlanesActivosComponent
+    ListaPlanesActivosComponent,
+    CrearCeldasComponent
   ],
   imports: [
     BrowserModule,

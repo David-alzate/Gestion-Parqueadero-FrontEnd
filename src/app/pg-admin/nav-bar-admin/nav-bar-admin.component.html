@@ -17,6 +17,12 @@
       Gestion Sedes
     </button>
   </mat-menu>
+  <button mat-button [matMenuTriggerFor]="celdas">Celdas</button>
+  <mat-menu #celdas="matMenu">
+    <button mat-menu-item [routerLink]="['/admin/crear-celdas']">
+      Crear Celdas
+    </button>
+  </mat-menu>
   <button mat-button [matMenuTriggerFor]="empleados">Empleados</button>
   <mat-menu #empleados="matMenu">
     <button mat-menu-item [routerLink]="['/admin/empleado']">

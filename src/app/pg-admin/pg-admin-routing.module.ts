@@ -19,6 +19,7 @@ import { AdminGuard } from '../auth-admin.guard';
 import { ListaPlanesActivosComponent } from '../lista-planes/lista-planes-activos/lista-planes-activos.component';
 import { HistorialSesionesParqueoComponent } from '../historial-sesiones-parqueo/historial-sesiones-parqueo.component';
 import { SesionesActivasComponent } from '../historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
+import { CrearCeldasComponent } from '../crear-celdas/crear-celdas.component';
 
 const routes: Routes = [
   {
@@ -42,7 +43,9 @@ const routes: Routes = [
       { path: 'lista-planes', component: ListaPlanesComponent },
       { path: 'lista-planes-activos', component: ListaPlanesActivosComponent },
       { path: 'historial-sesiones-parqueo', component: HistorialSesionesParqueoComponent },
-      { path: 'sesiones-parqueo-activas', component: SesionesActivasComponent }
+      { path: 'sesiones-parqueo-activas', component: SesionesActivasComponent },
+      { path: 'crear-celdas', component: CrearCeldasComponent }
+
 
     ]
   }
