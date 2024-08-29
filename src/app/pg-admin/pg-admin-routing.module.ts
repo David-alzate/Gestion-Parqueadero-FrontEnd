@@ -20,6 +20,7 @@ import { ListaPlanesActivosComponent } from '../lista-planes/lista-planes-activo
 import { HistorialSesionesParqueoComponent } from '../historial-sesiones-parqueo/historial-sesiones-parqueo.component';
 import { SesionesActivasComponent } from '../historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
 import { CrearCeldasComponent } from '../crear-celdas/crear-celdas.component';
+import { ListaCeldasComponent } from '../lista-celdas/lista-celdas.component';
 
 const routes: Routes = [
   {
@@ -44,7 +45,8 @@ const routes: Routes = [
       { path: 'lista-planes-activos', component: ListaPlanesActivosComponent },
       { path: 'historial-sesiones-parqueo', component: HistorialSesionesParqueoComponent },
       { path: 'sesiones-parqueo-activas', component: SesionesActivasComponent },
-      { path: 'crear-celdas', component: CrearCeldasComponent }
+      { path: 'crear-celdas', component: CrearCeldasComponent },
+      { path: 'lista-celdas', component: ListaCeldasComponent }
 
 
     ]
