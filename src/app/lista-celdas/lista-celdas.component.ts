@@ -4,6 +4,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { CeldasService } from '../services/celdas.service';
 import { MatDialog } from '@angular/material/dialog';
+import swal from 'sweetalert2';
+import { EditarCeldaComponent } from './editar-celda/editar-celda.component';
 
 interface Celda {
   id: any;
@@ -66,12 +68,52 @@ export class ListaCeldasComponent implements OnInit {
   }
 
 
-  eliminarCelda(id: any) {
-
+  eliminarCelda(cliente: { id: any; }): void {
+    swal({
+      title: '¿Estás seguro?',
+      text: "Confirma si deseas eliminar las celdas",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, elimínalo',
+      cancelButtonText: 'No, cancelar',
+      confirmButtonClass: 'btn btn-success',
+      cancelButtonClass: 'btn btn-danger',
+      buttonsStyling: true
+    }).then((result) => {
+      if (result.value) {
+        this.celdasService.deleteCelda(cliente.id).subscribe(resp => {
+          const index = this.Celdas.findIndex(e => e.id === cliente.id);
+          if (index > -1) {
+            this.Celdas.splice(index, 1);
+            this.dataSource.data = this.Celdas;
+            swal(
+              'Celdas eliminado',
+              'Las celdas ha sido eliminado con éxito',
+              'success'
+            );
+          }
+        },
+          error => {
+            console.error(error);
+          });
+      }
+    });
   }
 
   editarCelda(id: any) {
+    const dialogRef = this.dialog.open(EditarCeldaComponent, {
+      width: '550px',
+      disableClose: true,
+      data: { id: id }
+    });
 
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.cargarCeldas();
+      }
+    });
   }
 
 }
