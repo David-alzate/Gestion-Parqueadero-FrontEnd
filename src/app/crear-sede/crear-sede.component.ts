@@ -46,9 +46,6 @@ export class CrearSedeComponent implements OnInit {
       departamento: ['', Validators.required],
       ciudad: ['', Validators.required],
       direccion: ['', Validators.required],
-      celdasCarro: ['', Validators.required],
-      celdasMoto: ['', Validators.required],
-      celdascamion: ['', Validators.required],
     });
   }
 

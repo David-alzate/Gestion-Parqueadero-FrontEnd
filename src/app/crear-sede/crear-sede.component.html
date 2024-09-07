@@ -47,6 +47,7 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field class="ancho">
         <mat-label>ciudad</mat-label>
         <mat-select formControlName="ciudad">
@@ -55,22 +56,12 @@
           </mat-option>
         </mat-select>
       </mat-form-field>
+
       <mat-form-field class="ancho">
         <mat-label>Direccion</mat-label>
         <input type="text" matInput formControlName="direccion">
       </mat-form-field>
-      <mat-form-field class="ancho">
-        <mat-label>Cantidad De Celdas Carro</mat-label>
-        <input type="number" matInput formControlName="celdasCarro">
-      </mat-form-field>
-      <mat-form-field class="ancho">
-        <mat-label>Cantidad De Celdas Moto</mat-label>
-        <input type="number" matInput formControlName="celdasMoto">
-      </mat-form-field>
-      <mat-form-field class="ancho">
-        <mat-label>Cantidad De Celdas Camion</mat-label>
-        <input type="number" matInput formControlName="celdascamion">
-      </mat-form-field>
+
       <br>
       <button type="submit" class="ancho boton" mat-flat-button [disabled]="sedeForm.invalid" color="primary">Crear
         Sede</button>

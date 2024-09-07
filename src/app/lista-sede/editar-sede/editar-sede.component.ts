@@ -47,9 +47,6 @@ export class EditarSedeComponent implements OnInit {
       departamento: ['', Validators.required],
       ciudad: ['', Validators.required],
       direccion: ['', Validators.required],
-      celdasCarro: ['', Validators.required],
-      celdasMoto: ['', Validators.required],
-      celdascamion: ['', Validators.required],
     });
     this.id = this.data.id.id;
   }
@@ -131,9 +128,6 @@ export class EditarSedeComponent implements OnInit {
       tipoSede: tipoSede,
       pais: pais,
       direccion: this.data.id.direccion,
-      celdasCarro: this.data.id.celdasCarro,
-      celdasMoto: this.data.id.celdasMoto,
-      celdascamion: this.data.id.celdascamion,
     });
 
     this.departamentosService.getAllDepartamentosByPais(pais.id).subscribe(

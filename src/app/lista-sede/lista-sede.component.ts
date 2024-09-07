@@ -18,9 +18,6 @@ interface Sede {
   departamento: string;
   ciudad: string;
   direccion: string;
-  celdasMoto: number;
-  celdasCarro: number;
-  celdasCamion: number;
 }
 
 @Component({
@@ -32,8 +29,7 @@ interface Sede {
 export class ListaSedeComponent implements OnInit, AfterViewInit {
 
   sedes: Sede[] = [];
-  displayedColumns: string[] = ['nombreParqueadero', 'nombre', 'correo', 'tipoSede', 'pais', 'departamento', 'ciudad', 'direccion', 'celdasMoto',
-    'celdasCarro', 'celdasCamion', 'acciones'];
+  displayedColumns: string[] = ['nombreParqueadero', 'nombre', 'correo', 'tipoSede', 'pais', 'departamento', 'ciudad', 'direccion', 'acciones'];
   dataSource: MatTableDataSource<Sede> = new MatTableDataSource<Sede>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

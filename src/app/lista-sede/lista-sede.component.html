@@ -53,21 +53,6 @@
                         <td mat-cell *matCellDef="let element"> {{element.direccion}} </td>
                     </ng-container>
 
-                    <ng-container matColumnDef="celdasMoto">
-                        <th mat-header-cell *matHeaderCellDef> Celdas Moto </th>
-                        <td mat-cell *matCellDef="let element"> {{element.celdasCarro}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="celdasCarro">
-                        <th mat-header-cell *matHeaderCellDef> Celdas Carro </th>
-                        <td mat-cell *matCellDef="let element"> {{element.celdasMoto}} </td>
-                    </ng-container>
-
-                    <ng-container matColumnDef="celdasCamion">
-                        <th mat-header-cell *matHeaderCellDef> Celdas Camion </th>
-                        <td mat-cell *matCellDef="let element"> {{element.celdascamion}} </td>
-                    </ng-container>
-
                     <ng-container matColumnDef="acciones">
                         <th mat-header-cell *matHeaderCellDef></th>
                         <td mat-cell *matCellDef="let element; let i = index" style="text-align: right;">
