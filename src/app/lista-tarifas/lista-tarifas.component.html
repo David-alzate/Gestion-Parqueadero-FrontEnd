@@ -40,12 +40,12 @@
 
           <ng-container matColumnDef="fechaInicioVigencia">
             <th mat-header-cell *matHeaderCellDef> Fecha Inicio Vigencia </th>
-            <td mat-cell *matCellDef="let element"> {{element.fechaInicioVigencia}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.fechaInicioVigencia | date: 'dd/MM/yyyy'}} </td>
           </ng-container>
 
           <ng-container matColumnDef="fechaFinVigencia">
             <th mat-header-cell *matHeaderCellDef> Fecha Fin Vigencia </th>
-            <td mat-cell *matCellDef="let element"> {{element.fechaFinVigencia}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.fechaFinVigencia | date: 'dd/MM/yyyy'}} </td>
           </ng-container>
 
           <ng-container matColumnDef="acciones">

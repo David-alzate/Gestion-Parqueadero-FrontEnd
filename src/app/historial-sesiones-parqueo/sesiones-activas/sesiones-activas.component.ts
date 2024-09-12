@@ -16,7 +16,6 @@ interface SesionesParqueo {
   empleado: string;
   estado: string;
   fechaHoraIngreso: string;
-  fechaHoraSalida: string;
 }
 
 @Component({
@@ -27,7 +26,7 @@ interface SesionesParqueo {
 export class SesionesActivasComponent implements OnInit {
 
   sesiones: SesionesParqueo[] = [];
-  displayedColumns: string[] = ['sede', 'placa', 'tipoVehiculo', 'empleado', 'estado', 'fechaHoraIngreso', 'fechaHoraSalida', 'acciones'];
+  displayedColumns: string[] = ['sede', 'placa', 'tipoVehiculo', 'empleado', 'estado', 'fechaHoraIngreso', 'acciones'];
   dataSource: MatTableDataSource<SesionesParqueo> = new MatTableDataSource<SesionesParqueo>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
