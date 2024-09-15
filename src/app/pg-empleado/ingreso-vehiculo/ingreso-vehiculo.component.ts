@@ -44,7 +44,7 @@ export class IngresoVehiculoComponent implements OnInit {
       console.error(error);
     });
 
-    this.empleadoService.getAllEmpleados().subscribe(resp => {
+    this.empleadoService.getEmpleadosByRolEmpleado().subscribe(resp => {
       this.empleado = resp.datos;
     }, error => {
       console.error(error);

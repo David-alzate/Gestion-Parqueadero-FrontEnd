@@ -15,6 +15,10 @@ export class EmpleadosService {
     return this.httpCliente.get(this.API_SERVER);
   }
 
+  public getEmpleadosByRolEmpleado(): Observable<any> {
+    return this.httpCliente.get(this.API_SERVER + "rolEmpleado");
+  }
+
   public saveEmpleado(empleado: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, empleado);
   }
