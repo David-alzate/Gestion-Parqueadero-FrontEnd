@@ -35,6 +35,7 @@ export class EditarClienteComponent implements OnInit {
     });
     this.id = this.data.id.id;
   }
+  
   ngOnInit(): void {
     this.tipoIdentificacionService.getAllTipoIdentificaciones().subscribe(resp => {
       this.tipoIdentificacion = resp.datos
