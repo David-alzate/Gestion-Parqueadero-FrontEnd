@@ -13,6 +13,7 @@ interface Empleado {
   apellido: string;
   tipoIdentificacion: string;
   numeroIdentificacion: string;
+  estado: string;
   correoElectronico: string;
   tipoEmpleado: string;
   sede: string;
@@ -26,7 +27,7 @@ interface Empleado {
 export class ListaEmpleadosComponent{
 
   empleados: Empleado[] = []
-  displayedColumns: string[] = ['nombre', 'apellido', 'tipoIdentificacion', 'numeroIdentificacion', 'correoElectronico', 'tipoEmpleado', 'sede', 'acciones'];
+  displayedColumns: string[] = ['nombre', 'apellido', 'tipoIdentificacion', 'numeroIdentificacion', 'estado', 'correoElectronico', 'tipoEmpleado', 'sede', 'acciones'];
   dataSource: MatTableDataSource<Empleado> = new MatTableDataSource<Empleado>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

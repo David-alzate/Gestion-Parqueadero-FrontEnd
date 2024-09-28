@@ -40,7 +40,6 @@ export class ListaPlanesActivosComponent {
     private _snackBar: MatSnackBar
   ) { }
 
-
   ngOnInit(): void {
     this.cargarPlanes();
   }
