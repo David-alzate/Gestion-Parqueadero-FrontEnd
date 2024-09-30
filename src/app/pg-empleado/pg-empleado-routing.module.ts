@@ -9,6 +9,7 @@ import { CrearPlanComponent } from '../crear-plan/crear-plan.component';
 import { ListaPlanesComponent } from '../lista-planes/lista-planes.component';
 import { SalidaVehiculoComponent } from './salida-vehiculo/salida-vehiculo.component';
 import { ListaPlanesActivosComponent } from '../lista-planes/lista-planes-activos/lista-planes-activos.component';
+import { TarifasActivasComponent } from '../lista-tarifas/tarifas-activas/tarifas-activas.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,7 @@ const routes: Routes = [
       { path: 'lista-plan', component: ListaPlanesComponent },
       { path: 'lista-plan-activos', component: ListaPlanesActivosComponent },
       { path: 'salida-vehiculo', component: SalidaVehiculoComponent },
+      { path: 'tarifas-activas', component: TarifasActivasComponent },
     ]
   }
 ];

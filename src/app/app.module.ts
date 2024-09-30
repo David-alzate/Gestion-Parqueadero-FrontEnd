@@ -15,6 +15,7 @@ import { ListaPlanesActivosComponent } from './lista-planes/lista-planes-activos
 import { CrearCeldasComponent } from './crear-celdas/crear-celdas.component';
 import { ListaCeldasComponent } from './lista-celdas/lista-celdas.component';
 import { EditarCeldaComponent } from './lista-celdas/editar-celda/editar-celda.component';
+import { TarifasActivasComponent } from './lista-tarifas/tarifas-activas/tarifas-activas.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { EditarCeldaComponent } from './lista-celdas/editar-celda/editar-celda.c
     ListaPlanesActivosComponent,
     CrearCeldasComponent,
     ListaCeldasComponent,
-    EditarCeldaComponent
+    EditarCeldaComponent,
+    TarifasActivasComponent
   ],
   imports: [
     BrowserModule,

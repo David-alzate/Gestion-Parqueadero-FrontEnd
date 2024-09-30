@@ -16,6 +16,9 @@
       Historial Sesiones Parqueo
     </button>
   </mat-menu>
+  <button mat-button [routerLink]="['/empleado/tarifas-activas']">
+    Tarifas
+  </button>
   <button mat-button [matMenuTriggerFor]="planes">Planes</button>
   <mat-menu #planes="matMenu">
     <button mat-menu-item [routerLink]="['/empleado/crear-plan']">
