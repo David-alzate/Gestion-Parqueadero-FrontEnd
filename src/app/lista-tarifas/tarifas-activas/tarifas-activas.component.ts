@@ -54,7 +54,7 @@ export class TarifasActivasComponent {
   }
 
   cargarTarifas() {
-    this.tarifasService.getAllTarifas().subscribe(resp => {
+    this.tarifasService.getAllTarifasActivas().subscribe(resp => {
       this.tarifas = resp.datos;
       this.dataSource.data = this.tarifas;
       this.cdr.detectChanges();

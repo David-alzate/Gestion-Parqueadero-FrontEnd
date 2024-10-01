@@ -15,6 +15,10 @@ export class TarifasService {
     return this.httpCliente.get(this.API_SERVER);
   }
 
+  public getAllTarifasActivas(): Observable<any> {
+    return this.httpCliente.get(this.API_SERVER + "activas")
+  }
+
   public saveTarifa(tarifa: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, tarifa);
   }
