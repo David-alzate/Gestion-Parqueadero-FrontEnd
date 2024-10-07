@@ -15,6 +15,10 @@ export class CeldasService {
     return this.httpCliente.get(this.API_SERVER);
   }
 
+  public getCantidadCeldas(): Observable<any> {
+    return this.httpCliente.get(this.API_SERVER + "Disponibles");
+  }
+
   public saveCelda(celda: any): Observable<any> {
     return this.httpCliente.post(this.API_SERVER, celda);
   }

@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { CeldasService } from '../services/celdas.service';
+import { CeldasService } from '../services/celdas/celdas.service';
 import { MatDialog } from '@angular/material/dialog';
 import swal from 'sweetalert2';
 import { EditarCeldaComponent } from './editar-celda/editar-celda.component';

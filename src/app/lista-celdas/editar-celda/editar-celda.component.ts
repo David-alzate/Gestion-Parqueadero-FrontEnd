@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { EditarParqueaderoComponent } from 'src/app/lista-parqueadero/editar-parqueadero/editar-parqueadero.component';
-import { CeldasService } from 'src/app/services/celdas.service';
+import { CeldasService } from 'src/app/services/celdas/celdas.service';
 import { SedeService } from 'src/app/services/sede/sede.service';
 import { TipoVehiculoService } from 'src/app/services/tipoVehiculo/tipo-vehiculo.service';
 
