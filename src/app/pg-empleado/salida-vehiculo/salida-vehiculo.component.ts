@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MetodoPagoService } from 'src/app/services/metodoPago/metodo-pago.service';
 import { SesionesParqueoService } from 'src/app/services/sesionParqueo/sesiones-parqueo.service';
 
 @Component({
@@ -9,18 +10,28 @@ import { SesionesParqueoService } from 'src/app/services/sesionParqueo/sesiones-
   templateUrl: './salida-vehiculo.component.html',
   styleUrls: ['./salida-vehiculo.component.css']
 })
-export class SalidaVehiculoComponent {
+export class SalidaVehiculoComponent implements OnInit{
 
   salidaVehiculoForm: FormGroup;
+  metodoPago: any;
 
   constructor(
     public fb: FormBuilder,
     public sesionParqueoService: SesionesParqueoService,
     private _snackBar: MatSnackBar,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public metodoPagservice: MetodoPagoService
   ) {
     this.salidaVehiculoForm = this.fb.group({
       placa: ['', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {
+    this.metodoPagservice.getAllMetodosPago().subscribe(resp => {
+      this.metodoPago = resp.datos;
+    }, error => {
+      console.error(error);
     });
   }
 

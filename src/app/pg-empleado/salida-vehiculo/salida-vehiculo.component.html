@@ -8,6 +8,15 @@
                 <input type="text" matInput formControlName="placa" appUppercase>
             </mat-form-field>
 
+            <mat-form-field class="ancho">
+                <mat-label>Metodo Pago</mat-label>
+                <mat-select formControlName="tipoSede">
+                  <mat-option *ngFor="let item of metodoPago" [value]="item">
+                    {{ item.nombre }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
             <br>
             <button type="submit" class="ancho boton" mat-flat-button [disabled]="salidaVehiculoForm.invalid"
                 color="primary">Salida de Vehiculo</button>
