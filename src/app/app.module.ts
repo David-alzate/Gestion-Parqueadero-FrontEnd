@@ -12,7 +12,7 @@ import { HistorialSesionesParqueoComponent } from './historial-sesiones-parqueo/
 import { EditarSesionParqueoComponent } from './historial-sesiones-parqueo/editar-sesion-parqueo/editar-sesion-parqueo.component';
 import { SesionesActivasComponent } from './historial-sesiones-parqueo/sesiones-activas/sesiones-activas.component';
 import { ListaPlanesActivosComponent } from './lista-planes/lista-planes-activos/lista-planes-activos.component';
-import { CrearCeldasComponent } from './crear-celdas/crear-celdas.component';
+import { CrearCeldasComponent } from './pg-admin/crear-celdas/crear-celdas.component';
 import { ListaCeldasComponent } from './lista-celdas/lista-celdas.component';
 import { EditarCeldaComponent } from './lista-celdas/editar-celda/editar-celda.component';
 import { TarifasActivasComponent } from './lista-tarifas/tarifas-activas/tarifas-activas.component';

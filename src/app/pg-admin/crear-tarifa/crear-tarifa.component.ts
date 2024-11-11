@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EstadosService } from '../services/estados/estados.service';
-import { TipoTatifasService } from '../services/tipoTarifas/tipo-tatifas.service';
-import { TipoVehiculoService } from '../services/tipoVehiculo/tipo-vehiculo.service';
-import { TarifasService } from '../services/tarifas/tarifas.service';
-import { SedeService } from '../services/sede/sede.service';
+import { EstadosService } from '../../services/estados/estados.service';
+import { TipoTatifasService } from '../../services/tipoTarifas/tipo-tatifas.service';
+import { TipoVehiculoService } from '../../services/tipoVehiculo/tipo-vehiculo.service';
+import { TarifasService } from '../../services/tarifas/tarifas.service';
+import { SedeService } from '../../services/sede/sede.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

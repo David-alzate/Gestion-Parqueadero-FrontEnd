@@ -5,13 +5,13 @@ import { PgAdminComponent } from './pg-admin.component';
 import { NavBarAdminComponent } from './nav-bar-admin/nav-bar-admin.component';
 import { SharedModule } from '../shared/shared.module';
 
-import { CrearParqueaderoComponent } from '../crear-parqueadero/crear-parqueadero.component';
-import { CrearSedeComponent } from '../crear-sede/crear-sede.component';
+import { CrearParqueaderoComponent } from './crear-parqueadero/crear-parqueadero.component';
+import { CrearSedeComponent } from './crear-sede/crear-sede.component';
 import { ListaSedeComponent } from '../lista-sede/lista-sede.component';
 import { ListaParqueaderoComponent } from '../lista-parqueadero/lista-parqueadero.component';
-import { CrearEmpleadoComponent } from '../crear-empleado/crear-empleado.component';
+import { CrearEmpleadoComponent } from './crear-empleado/crear-empleado.component';
 import { ListaEmpleadosComponent } from '../lista-empleados/lista-empleados.component';
-import { CrearTarifaComponent } from '../crear-tarifa/crear-tarifa.component';
+import { CrearTarifaComponent } from './crear-tarifa/crear-tarifa.component';
 import { ListaTarifasComponent } from '../lista-tarifas/lista-tarifas.component';
 import { CrearClienteComponent } from '../crear-cliente/crear-cliente.component';
 import { ListaClientesComponent } from '../lista-clientes/lista-clientes.component';

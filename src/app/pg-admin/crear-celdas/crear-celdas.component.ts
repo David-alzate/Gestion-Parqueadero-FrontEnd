@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { CeldasService } from '../services/celdas/celdas.service';
-import { SedeService } from '../services/sede/sede.service';
-import { TipoVehiculoService } from '../services/tipoVehiculo/tipo-vehiculo.service';
+import { CeldasService } from '../../services/celdas/celdas.service';
+import { SedeService } from '../../services/sede/sede.service';
+import { TipoVehiculoService } from '../../services/tipoVehiculo/tipo-vehiculo.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({

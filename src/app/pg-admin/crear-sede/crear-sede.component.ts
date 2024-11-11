@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { SedeService } from '../services/sede/sede.service';
-import { PaisesService } from '../services/paises/paises.service';
-import { DepartamentosService } from '../services/departamentos/departamentos.service';
-import { ParqueaderosService } from '../services/parqueaderos/parqueaderos.service';
-import { TipoSedeService } from '../services/tipoSede/tipo-sede.service';
-import { CiudadesService } from '../services/ciudades/ciudaes.service';
+import { SedeService } from '../../services/sede/sede.service';
+import { PaisesService } from '../../services/paises/paises.service';
+import { DepartamentosService } from '../../services/departamentos/departamentos.service';
+import { ParqueaderosService } from '../../services/parqueaderos/parqueaderos.service';
+import { TipoSedeService } from '../../services/tipoSede/tipo-sede.service';
+import { CiudadesService } from '../../services/ciudades/ciudaes.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { validItemValidator } from '../validators/custom-validators';
+import { validItemValidator } from '../../validators/custom-validators';
 @Component({
   selector: 'app-root',
   templateUrl: './crear-sede.component.html',

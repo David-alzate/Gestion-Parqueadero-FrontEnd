@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { EmpleadosService } from '../services/empleados/empleados.service';
-import { TipoIdentificacionService } from '../services/tipoIdentificacion/tipo-identificacion.service';
-import { TipoEmpleadosService } from '../services/tipoEmpleados/tipo-empleados.service';
-import { SedeService } from '../services/sede/sede.service';
+import { EmpleadosService } from '../../services/empleados/empleados.service';
+import { TipoIdentificacionService } from '../../services/tipoIdentificacion/tipo-identificacion.service';
+import { TipoEmpleadosService } from '../../services/tipoEmpleados/tipo-empleados.service';
+import { SedeService } from '../../services/sede/sede.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
@@ -24,7 +24,6 @@ export class CrearEmpleadoComponent implements OnInit {
     this.hide = !this.hide;
   }
   
-
   constructor(
     public fb: FormBuilder,
     public empleadoService: EmpleadosService,
