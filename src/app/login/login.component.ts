@@ -5,6 +5,7 @@ import { LoginService } from '../services/login/login.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth/auth.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -38,12 +39,23 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.tipoEmpleadoService.getAllTipoEmpleados().subscribe(resp => {
-      this.tipoEmpleado = resp.datos;
-    },
-      error => { console.error(error); }
+    this.tipoEmpleadoService.getAllTipoEmpleados().subscribe(
+      resp => {
+        this.tipoEmpleado = resp.datos;
+      },
+      error => {
+        swal({
+          title: 'Error al conectar con el servidor',
+          text: "No se pudo obtener la información del servidor. Intenta nuevamente más tarde.",
+          type: 'warning',
+          confirmButtonColor: '#3085d6',
+          confirmButtonText: 'Aceptar',
+          buttonsStyling: true
+        });
+      }
     );
   }
+  
 
   iniciarSesion(): void {
     if (this.loginForm.valid) {
