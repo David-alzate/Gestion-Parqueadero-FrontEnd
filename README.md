@@ -1,27 +1,38 @@
-# FrontEndGP
+# Gestión Parqueadero - Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+## Introducción
+Este repositorio contiene el sistema frontend del proyecto para la gestión de parqueaderos vehiculares. Desarrollado con Angular, este sistema proporciona una interfaz web moderna e intuitiva para interactuar con el [backend de gestión de parqueaderos](<https://github.com/David-alzate/Gestion-Parqueadero-Backend>). El frontend permite a usuarios y administradores acceder a las principales funcionalidades del sistema, asegurando una experiencia de usuario eficiente y fácil de usar.
 
-## Development server
+## Características Principales
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Gestión de Parqueaderos y Sedes
+- Visualización de parqueaderos disponibles y sus sedes asociadas.
+- Navegación sencilla para crear y administrar sedes.
 
-## Code scaffolding
+### Autenticación y Autorización
+- Sistema de inicio de sesión para usuarios y administradores.
+- Implementación de permisos de acceso según perfiles de usuario.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Registro de Vehículos
+- Interfaz para el registro de matrículas al ingreso.
+- Visualización de horarios de entrada y salida de vehículos.
 
-## Build
+### Gestión de Tarifas
+- Configuración de tarifas desde la interfaz administrativa.
+- Visualización de tarifas diferenciadas por tipo de vehículo (carro, moto, camión).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Control de Abonados
+- Gestión de suscripciones para abonados con opciones mensuales o anuales.
+- Visualización de planes y estado de suscripciones.
 
-## Running unit tests
+### Interfaz de Administración
+- Gestión de perfiles de empleados con opciones para agregar, editar o eliminar información.
+- Panel de control para acceder a estadísticas y reportes del sistema.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Tecnologías Utilizadas
+- **Framework**: Angular
+- **Lenguaje de Programación**: TypeScript
+- **Estilos**: CSS/SCSS
+- **Comunicación con Backend**: HTTP Client integrado con el backend desarrollado en Spring Boot
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
